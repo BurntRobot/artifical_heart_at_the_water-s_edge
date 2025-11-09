@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=4 uid="uid://cyqa3xdmnxit8"]
+
+[ext_resource type="Script" uid="uid://cr18urro7dm4m" path="res://Buildings/building.gd" id="1_282m8"]
+[ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_gtvch"]
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_282m8")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEAAwAAAAAAAAD//wAAAwAAAAAAAAD/////AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP3/AwAAAAAAAAAAAPz/AwAAAAAAAAABAP7/AwAAAAAAAAAAAP//AwAAAAAAAAAAAAAAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAD+////AwAAAAAAAAD///7/AwAAAAAAAAD///3/AwAAAAAAAAD+/wAAAwAAAAAAAAA=")
+tile_set = ExtResource("1_gtvch")
