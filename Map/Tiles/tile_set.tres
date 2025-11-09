@@ -1,28 +1,20 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://chx3a5tst7d7j"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://chx3a5tst7d7j"]
 
 [ext_resource type="Texture2D" uid="uid://crug5ga154hjp" path="res://Map/Tiles/tile_base.png" id="1_njj2v"]
-[ext_resource type="Texture2D" uid="uid://b2drlgpe5tjry" path="res://Map/Tiles/point_tile.png" id="2_iw3qa"]
-[ext_resource type="Texture2D" uid="uid://llmuhqm7cva8" path="res://Map/Tiles/water_base.png" id="3_jfn1y"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3sb7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0pi3g"]
 texture = ExtResource("1_njj2v")
 texture_region_size = Vector2i(30, 18)
 0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
-texture = ExtResource("2_iw3qa")
-texture_region_size = Vector2i(30, 18)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqk2v"]
-texture = ExtResource("3_jfn1y")
-texture_region_size = Vector2i(30, 18)
-0:0/0 = 0
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
 [resource]
 tile_shape = 1
 tile_layout = 5
 tile_size = Vector2i(30, 18)
-sources/2 = SubResource("TileSetAtlasSource_f3sb7")
-sources/3 = SubResource("TileSetAtlasSource_tlwt5")
-sources/4 = SubResource("TileSetAtlasSource_aqk2v")
+custom_data_layer_0/name = "Buildable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_0pi3g")

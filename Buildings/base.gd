@@ -24,9 +24,17 @@ func _get_rotated_tile_place(_tile: Vector2i, _is_rotated: bool):
 	return _new_tile_place
 
 func _rotate_tile(_tile: Vector2i, _new_tile_place: Vector2i):
-	set_cell(_new_tile_place, 3, Vector2i(0,0))
+	set_cell(_new_tile_place, 0, Vector2i(2,0))
 
 func _erase_unactive_tiles(_new_tiles: Array[Vector2i], _old_tiles: Array[Vector2i]):
 	for _tile in _old_tiles:
 		if _tile not in _new_tiles:
 			erase_cell(_tile)
+
+func _update_tiles_colors():
+	pass
+	#get_cell_tile_data(_tile).get_custom_data("Buildable")
+
+func _set_all_tiles_to_red():
+	for _tile in get_used_cells():
+		set_cell(_tile, 0, Vector2i(3,0))

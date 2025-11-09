@@ -4,10 +4,11 @@ extends Camera2D
 
 
 func _ready() -> void:
-	position.x = (limit_right - limit_left) / 2
-	position.y = (limit_bottom - limit_top) / 2
+	pass
+	#position.x = (limit_right - limit_left) / 2
+	#position.y = (limit_bottom - limit_top) / 2
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if get_global_mouse_position().x <= 0 + SCREEN_BORDER_FOR_MOVEMENT:
 		print(position.x)
 		#position.x -= 1

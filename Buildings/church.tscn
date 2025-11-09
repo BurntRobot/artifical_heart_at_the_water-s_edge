@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=4 uid="uid://ce0ymdlijkja6"]
+
+[ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_key4u"]
+[ext_resource type="Texture2D" uid="uid://gnha5jdds1fq" path="res://Buildings/church_sprite_for_testing/renders/idle/45/000.png" id="2_8r65t"]
+
+[node name="Building" instance=ExtResource("1_key4u")]
+
+[node name="Base" parent="." index="0"]
+tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD//wIAAAACAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAABAAAAAAACAAAAAAAAAAAAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD9/wIAAAACAAAAAAD+/wIAAAACAAAAAAD+/wEAAAACAAAAAAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAABAAEAAAACAAAAAAABAP//AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAACAAAAAAAAAP//AAACAAAAAAD+//7/AAACAAAAAAD9//7/AAACAAAAAAA=")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_8r65t")
+
+[node name="AnimationPlayer" parent="." index="2"]
+unique_name_in_owner = true

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Building
 
 @onready var base: TileMapLayer = $Base
 @onready var sprite: Sprite2D = $Sprite
@@ -12,11 +13,12 @@ var rotated: bool = false
 var is_built: bool = false
 
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not is_built:
 		position = get_global_mouse_position().snapped(Vector2(30, 18))
 		if CityResources.money - building_cost < 0:
 			sprite.self_modulate = Color('ff000089')
+			base._set_all_tiles_to_red()
 		else:
 			sprite.self_modulate = Color('ffffff89')
 
