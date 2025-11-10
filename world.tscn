@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://ce0ymdlijkja6" path="res://Buildings/church.tscn" id="2_036b0"]
+[ext_resource type="PackedScene" uid="uid://ce0ymdlijkja6" path="res://Buildings/town_hall.tscn" id="2_036b0"]
 [ext_resource type="Script" uid="uid://c8b52ovhgrp2j" path="res://Player/player_camera.gd" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://dyl05h3ppiq0x" path="res://GUI/money_label.gd" id="5_036b0"]
 [ext_resource type="Script" uid="uid://djjjdyay4mfa2" path="res://GUI/day_timer.gd" id="6_dwbse"]

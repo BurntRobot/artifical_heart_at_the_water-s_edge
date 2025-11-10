@@ -13,6 +13,7 @@ var is_built: bool = false
 
 func _ready() -> void:
 	CityResources._on_next_day.connect(_next_day)
+	CityResources._on_next_month.connect(_next_month)
 
 func _physics_process(_delta: float) -> void:
 	if not is_built:
@@ -43,11 +44,6 @@ func _build():
 	animation_player.play("start_building")
 	is_built = true
 	CityResources.money -= building_cost
-	CityResources.max_houses = 1
 
-func _next_day():
-	if is_built:
-		CityResources.money += 5 #TODO: *workers
-
-func _next_month():
-	pass
+func _next_day(): pass
+func _next_month(): pass
