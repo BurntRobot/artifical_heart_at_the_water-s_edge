@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=8 format=4 uid="uid://cxnlncaghbgq2"]
 
-[ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://map.gd" id="1_aqk2v"]
+[ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://ce0ymdlijkja6" path="res://Buildings/church.tscn" id="2_036b0"]
 [ext_resource type="Script" uid="uid://c8b52ovhgrp2j" path="res://Player/player_camera.gd" id="4_aqk2v"]
-[ext_resource type="Script" uid="uid://dyl05h3ppiq0x" path="res://money_label.gd" id="5_036b0"]
+[ext_resource type="Script" uid="uid://dyl05h3ppiq0x" path="res://GUI/money_label.gd" id="5_036b0"]
+[ext_resource type="Script" uid="uid://djjjdyay4mfa2" path="res://GUI/day_timer.gd" id="6_dwbse"]
+[ext_resource type="Script" uid="uid://dn5bre6derpqq" path="res://GUI/date_label.gd" id="6_pkg7o"]
 
 [node name="World" type="Node"]
 
@@ -53,4 +55,20 @@ offset_bottom = 23.0
 grow_horizontal = 0
 script = ExtResource("5_036b0")
 
+[node name="DateLabel" type="Label" parent="GUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+script = ExtResource("6_pkg7o")
+
+[node name="DayTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+script = ExtResource("6_dwbse")
+
 [connection signal="pressed" from="GUI/test_build" to="Game/Map" method="_on_test_build_pressed"]
+[connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]

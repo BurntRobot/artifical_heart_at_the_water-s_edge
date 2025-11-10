@@ -4,10 +4,8 @@ class_name Building
 @onready var base: TileMapLayer = $Base
 @onready var sprite: Sprite2D = $Sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var second_timer: Timer = $SecondTimer
-@onready var minute_timer: Timer = $MinuteTimer
 
-var building_cost: int = 400
+@export var building_cost: int = 400
 
 var rotated: bool = false
 var is_built: bool = false
@@ -40,12 +38,11 @@ func _rotate():
 func _build():
 	animation_player.play("start_building")
 	is_built = true
-	second_timer.start()
-	minute_timer.start()
 	CityResources.money -= building_cost
+	CityResources.max_houses = 1
 
-func _on_second_timer_timeout() -> void:
-	pass # Replace with function body.
+func next_day():
+	CityResources.money += 5 #TODO: *workers
 
-func _on_minute_timer_timeout() -> void:
-	pass # Replace with function body.
+func next_month():
+	pass

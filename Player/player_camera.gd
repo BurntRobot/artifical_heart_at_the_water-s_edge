@@ -10,7 +10,8 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if get_global_mouse_position().x <= 0 + SCREEN_BORDER_FOR_MOVEMENT:
-		print(position.x)
+		pass
+		#print(position.x)
 		#position.x -= 1
 		#print(event.relative)
 
@@ -19,5 +20,4 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			zoom += Vector2(0.2, 0.2)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			zoom -= Vector2(0.2, 0.2)
-	
+			zoom -= Vector2(0.2, 0.2) #TODO: bug with <0
