@@ -32,7 +32,8 @@ func _erase_unactive_tiles(_new_tiles: Array[Vector2i], _old_tiles: Array[Vector
 			erase_cell(_tile)
 
 func _update_tiles_colors():
-	pass
+	for _tile in get_used_cells():
+		set_cell(_tile, 0, Vector2i(2,0))
 	#get_cell_tile_data(_tile).get_custom_data("Buildable")
 
 func _set_all_tiles_to_red():
