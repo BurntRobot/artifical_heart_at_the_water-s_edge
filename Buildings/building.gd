@@ -5,11 +5,15 @@ class_name Building
 @onready var base_for_water: TileMapLayer = $BaseForWater
 @onready var sprite: Sprite2D = $Sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var health_bar: ProgressBar = $HealthBar
+@onready var health_label: Label = $HealthBar/Label
 
 @export var building_cost: int = 400
+@export var is_built: bool = false
+@export var health: int = 250
+var current_health: int
 
 var rotated: bool = false
-var is_built: bool = false
 var can_build: bool = true
 
 signal _on_check_free_ground(_tile_map: Array[Vector2i])
@@ -20,6 +24,9 @@ func _ready() -> void:
 	CityResources._on_next_day.connect(_next_day)
 	CityResources._on_next_month.connect(_next_month)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	health_bar.max_value = health
+	current_health = health
+	health_bar.value = current_health
 
 func _physics_process(_delta: float) -> void:
 	if not is_built:
@@ -32,9 +39,13 @@ func _physics_process(_delta: float) -> void:
 			sprite.self_modulate = Color('ffffff89')
 			base._update_tiles_colors()
 			can_build = true
-		_on_check_free_ground.emit(base.get_used_cells())
-		if base_for_water.get_used_cells() == null:
-			_on_check_free_water.emit(base_for_water.get_used_cells())
+		# Место для здания
+		#_on_check_free_ground.emit(base.get_used_cells())
+		#if base_for_water.get_used_cells() == null:
+		#	_on_check_free_water.emit(base_for_water.get_used_cells())
+	else:
+		health_bar.value = current_health
+		health_label.text = str(current_health)
 
 func _input(event: InputEvent) -> void:
 	if not is_built:

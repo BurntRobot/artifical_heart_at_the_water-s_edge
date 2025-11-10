@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6lxut7b4p3of"]
+
+[ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_cr1d3"]
+
+[node name="Wall" instance=ExtResource("1_cr1d3")]
+health = 100
+
+[node name="Base" parent="." index="0"]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0)
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -13.0

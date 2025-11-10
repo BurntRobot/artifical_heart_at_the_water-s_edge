@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=10 format=4 uid="uid://cxnlncaghbgq2"]
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://ce0ymdlijkja6" path="res://Buildings/town_hall.tscn" id="2_036b0"]
 [ext_resource type="Script" uid="uid://c8b52ovhgrp2j" path="res://Player/player_camera.gd" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://b6lxut7b4p3of" path="res://Buildings/wall.tscn" id="4_ioo17"]
 [ext_resource type="Script" uid="uid://dyl05h3ppiq0x" path="res://GUI/money_label.gd" id="5_036b0"]
 [ext_resource type="Script" uid="uid://djjjdyay4mfa2" path="res://GUI/day_timer.gd" id="6_dwbse"]
 [ext_resource type="Script" uid="uid://dn5bre6derpqq" path="res://GUI/date_label.gd" id="6_pkg7o"]
+[ext_resource type="Script" uid="uid://j57goev0iekc" path="res://GUI/resources_label.gd" id="7_gbfbk"]
 
 [node name="World" type="Node"]
 process_mode = 3
@@ -15,6 +17,7 @@ process_mode = 3
 process_mode = 1
 
 [node name="Map" type="Node2D" parent="Game"]
+y_sort_enabled = true
 script = ExtResource("1_aqk2v")
 buildings_scenes = Array[PackedScene]([ExtResource("2_036b0")])
 
@@ -23,8 +26,25 @@ tile_map_data = PackedByteArray("AAAcAOD/AAAAAAAAAAAbAOH/AAAAAAAAAAAaAOL/AAAAAAA
 tile_set = ExtResource("1_fj7yv")
 
 [node name="BuildingsMap" type="TileMapLayer" parent="Game/Map"]
+visible = false
 tile_map_data = PackedByteArray("AAAMAAkAAAADAAAAAAALAAkAAAADAAAAAAALAAoAAAADAAAAAAAMAAoAAAADAAAAAAAMAAsAAAADAAAAAAANAAsAAAADAAAAAAANAAwAAAADAAAAAAAOAAwAAAADAAAAAAAPAAwAAAADAAAAAAAPAA0AAAADAAAAAAAQAA0AAAADAAAAAAARAA0AAAADAAAAAAARAAwAAAADAAAAAAARAAsAAAADAAAAAAARAAoAAAADAAAAAAAQAAoAAAADAAAAAAAPAAoAAAADAAAAAAAPAAkAAAADAAAAAAAOAAkAAAADAAAAAAANAAkAAAADAAAAAAANAAoAAAADAAAAAAAOAAsAAAADAAAAAAAQAAwAAAADAAAAAAAQAAsAAAADAAAAAAAPAAsAAAADAAAAAAAOAAoAAAADAAAAAAASAAsAAAADAAAAAAASAAoAAAADAAAAAAATAAoAAAADAAAAAAATAAkAAAADAAAAAAASAAkAAAADAAAAAAARAAkAAAADAAAAAAAQAAkAAAADAAAAAAATAAgAAAADAAAAAAASAAgAAAADAAAAAAAJAPn/AAADAAAAAAAKAPn/AAADAAAAAAAKAPj/AAADAAAAAAALAPj/AAADAAAAAAALAPf/AAADAAAAAAAMAPf/AAADAAAAAAAMAPb/AAADAAAAAAANAPb/AAADAAAAAAANAPf/AAADAAAAAAAOAPf/AAADAAAAAAAOAPj/AAADAAAAAAAPAPj/AAADAAAAAAAQAPj/AAADAAAAAAANAPj/AAADAAAAAAAMAPj/AAADAAAAAAALAPn/AAADAAAAAAA=")
 tile_set = ExtResource("1_fj7yv")
+
+[node name="Wall" parent="Game/Map" instance=ExtResource("4_ioo17")]
+position = Vector2(240, 288)
+is_built = true
+
+[node name="Wall2" parent="Game/Map" instance=ExtResource("4_ioo17")]
+position = Vector2(255, 279)
+is_built = true
+
+[node name="Wall3" parent="Game/Map" instance=ExtResource("4_ioo17")]
+position = Vector2(255, 261)
+is_built = true
+
+[node name="Wall4" parent="Game/Map" instance=ExtResource("4_ioo17")]
+position = Vector2(270, 252)
+is_built = true
 
 [node name="PlayerCamera" type="Camera2D" parent="Game"]
 limit_left = 0
@@ -45,9 +65,13 @@ script = ExtResource("4_aqk2v")
 process_mode = 3
 
 [node name="test_build" type="Button" parent="GUI"]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Build church"
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 105.0
+grow_vertical = 0
+text = "Build"
 
 [node name="MoneyLabel" type="Label" parent="GUI"]
 anchors_preset = 1
@@ -67,6 +91,11 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 script = ExtResource("6_pkg7o")
+
+[node name="ResourcesLabel" type="Label" parent="GUI"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("7_gbfbk")
 
 [node name="DayTimer" type="Timer" parent="."]
 process_mode = 1
