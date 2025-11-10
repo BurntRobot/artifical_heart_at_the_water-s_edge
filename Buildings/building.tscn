@@ -90,6 +90,9 @@ script = ExtResource("1_282m8")
 tile_set = ExtResource("1_gtvch")
 script = ExtResource("3_xt25x")
 
+[node name="BaseForWater" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_gtvch")
+
 [node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.5372549)
 
