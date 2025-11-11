@@ -5,11 +5,11 @@ extends Node2D
 @onready var buildings_map: TileMapLayer = $BuildingsMap
 @onready var base_map: TileMapLayer = $BaseMap
 
+signal _on_kafe_click
 
-func _on_test_build_pressed() -> void:
-	var town_hall = buildings_scenes[0].instantiate()
-	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
-	add_child(town_hall)
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 	for child in get_children():
@@ -22,6 +22,9 @@ func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 				if is_tile_a_ground(_tile + base_for_tile):
 					_red_tiles.append(_tile)
 			child.set_red_places(_red_tiles)
+
+func _kafe_is_clicked():
+	_on_kafe_click.emit()
 
 func is_tiles_are_free_water(tiles):
 	pass
@@ -40,3 +43,15 @@ func is_tile_builded():
 	pass
 func get_builded_tiles():
 	return buildings_map.get_used_cells_by_id(0, Vector2i(2, 0))
+
+
+func _on_test_build_pressed() -> void:
+	var town_hall = buildings_scenes[0].instantiate()
+	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
+	add_child(town_hall)
+
+func _on_test_build_2_pressed() -> void:
+	var kafe = buildings_scenes[1].instantiate()
+	kafe._on_check_free_ground.connect(is_tiles_are_free_ground)
+	kafe._on_click.connect(_kafe_is_clicked)
+	add_child(kafe)
