@@ -7,6 +7,7 @@ class_name Building
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var health_label: Label = $HealthBar/Label
+@onready var area_2d: Area2D = $Area2D
 
 @export var building_cost: int = 400
 @export var is_built: bool = false
@@ -71,7 +72,9 @@ func _build():
 	CityResources.money -= building_cost
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _next_day(): pass
+func _next_day():
+	if not area_2d.input_pickable and is_built:
+		area_2d.input_pickable = true
 func _next_month(): pass
 
 func set_red_places(_red_tiles: Array[Vector2i]):

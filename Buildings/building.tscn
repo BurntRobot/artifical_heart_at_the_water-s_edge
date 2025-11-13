@@ -158,5 +158,6 @@ label_settings = SubResource("LabelSettings_hr4wu")
 horizontal_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="."]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
