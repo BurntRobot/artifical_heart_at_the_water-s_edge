@@ -61,3 +61,11 @@ func reinforce_walls():
 		if child is Wall and child.is_built:
 			child.health += 50
 			child.current_health += 50
+
+func walls_take_damage():
+	for child in get_children():
+		if child is Wall and child.is_built:
+			child.current_health -= 100
+
+func _on_test_build_3_pressed() -> void:
+	walls_take_damage()

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var kafe_menu: CenterContainer = $GUI/KafeMenu
+@onready var kafe_menu: Control = $GUI/KafeMenu
 @onready var map: Node2D = $Game/Map
 
 

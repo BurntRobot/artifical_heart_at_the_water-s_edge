@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=4 uid="uid://dncsh5vk6ho6w"]
+[gd_scene load_steps=5 format=4 uid="uid://dncsh5vk6ho6w"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_tqoex"]
 [ext_resource type="Texture2D" uid="uid://dxawsqfait5iy" path="res://Buildings/barracks/renders/idle/45/000.png" id="2_8hs10"]
 [ext_resource type="Script" uid="uid://cahhpgukdsyca" path="res://Buildings/kafe.gd" id="2_0680k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0680k"]
+size = Vector2(75, 64)
 
 [node name="Kafe" instance=ExtResource("1_tqoex")]
 script = ExtResource("2_0680k")
@@ -22,3 +25,9 @@ offset_left = -12.0
 offset_top = -95.0
 offset_right = 28.0
 offset_bottom = -78.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(1.5, -15)
+shape = SubResource("RectangleShape2D_0680k")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

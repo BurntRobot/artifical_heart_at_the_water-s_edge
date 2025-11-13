@@ -46,6 +46,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		health_bar.value = current_health
 		health_label.text = str(current_health)
+		health_bar.max_value = health
+		if current_health <= 0:
+			queue_free()
 
 func _input(event: InputEvent) -> void:
 	if not is_built:

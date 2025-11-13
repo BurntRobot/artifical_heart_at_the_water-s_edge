@@ -87,6 +87,10 @@ text = "Build townhall"
 layout_mode = 2
 text = "Build kafe"
 
+[node name="test_build3" type="Button" parent="GUI/VBoxContainer"]
+layout_mode = 2
+text = "Wave"
+
 [node name="MoneyLabel" type="Label" parent="GUI"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -111,8 +115,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("7_gbfbk")
 
-[node name="KafeMenu" type="CenterContainer" parent="GUI"]
-visible = false
+[node name="KafeMenu" type="Control" parent="GUI"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -120,8 +124,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_ic0uy")
 
+[node name="ColorRect" type="ColorRect" parent="GUI/KafeMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.64705884)
+
 [node name="PanelContainer" type="PanelContainer" parent="GUI/KafeMenu"]
-layout_mode = 2
+layout_mode = 0
+offset_left = 119.0
+offset_top = 74.0
+offset_right = 280.0
+offset_bottom = 225.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_wse8f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer"]
@@ -163,6 +180,7 @@ script = ExtResource("6_dwbse")
 [connection signal="_on_kafe_click" from="Game/Map" to="." method="_on_map__on_kafe_click"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/test_build3" to="Game/Map" method="_on_test_build_3_pressed"]
 [connection signal="_on_walls_reinforced" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_walls_reinforced"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/Button4" to="GUI/KafeMenu" method="_on_button_4_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]

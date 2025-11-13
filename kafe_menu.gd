@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 signal _on_walls_reinforced
 
