@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6lxut7b4p3of"]
+[gd_scene load_steps=3 format=3 uid="uid://b6lxut7b4p3of"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_cr1d3"]
+[ext_resource type="Script" uid="uid://b68rkufov2exd" path="res://Buildings/wall.gd" id="2_iky6s"]
 
 [node name="Wall" instance=ExtResource("1_cr1d3")]
+script = ExtResource("2_iky6s")
+building_cost = 200
 health = 100
 
 [node name="Base" parent="." index="0"]
@@ -10,6 +13,6 @@ tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0)
 
 [node name="HealthBar" parent="." index="5"]
 offset_left = -20.0
-offset_top = -40.0
+offset_top = -29.0
 offset_right = 20.0
-offset_bottom = -13.0
+offset_bottom = -12.0

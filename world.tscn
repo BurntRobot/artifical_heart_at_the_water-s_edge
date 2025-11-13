@@ -163,6 +163,7 @@ script = ExtResource("6_dwbse")
 [connection signal="_on_kafe_click" from="Game/Map" to="." method="_on_map__on_kafe_click"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
+[connection signal="_on_walls_reinforced" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_walls_reinforced"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/Button4" to="GUI/KafeMenu" method="_on_button_4_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]
 [connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]

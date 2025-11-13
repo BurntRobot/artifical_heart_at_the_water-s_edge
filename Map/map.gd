@@ -55,3 +55,9 @@ func _on_test_build_2_pressed() -> void:
 	kafe._on_check_free_ground.connect(is_tiles_are_free_ground)
 	kafe._on_click.connect(_kafe_is_clicked)
 	add_child(kafe)
+
+func reinforce_walls():
+	for child in get_children():
+		if child is Wall and child.is_built:
+			child.health += 50
+			child.current_health += 50

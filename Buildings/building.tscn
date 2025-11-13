@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyqa3xdmnxit8"]
+[gd_scene load_steps=11 format=3 uid="uid://cyqa3xdmnxit8"]
 
 [ext_resource type="Script" uid="uid://cr18urro7dm4m" path="res://Buildings/building.gd" id="1_282m8"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_gtvch"]
@@ -83,6 +83,44 @@ _data = {
 &"start_building": SubResource("Animation_hr4wu")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr4wu"]
+bg_color = Color(0.5781473, 0.60023934, 0.53693175, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 12
+shadow_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xt25x"]
+bg_color = Color(0.8426348, 2.0696223e-06, 5.7756904e-07, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_hr4wu"]
+font_size = 11
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
 [node name="Building" type="Node2D"]
 script = ExtResource("1_282m8")
 
@@ -106,11 +144,15 @@ libraries = {
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_right = 40.0
-offset_bottom = 27.0
+offset_bottom = 17.0
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_hr4wu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xt25x")
 show_percentage = false
 
 [node name="Label" type="Label" parent="HealthBar"]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 16.0
+label_settings = SubResource("LabelSettings_hr4wu")
 horizontal_alignment = 1
