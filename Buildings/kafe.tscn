@@ -9,6 +9,7 @@ size = Vector2(75, 64)
 
 [node name="Kafe" instance=ExtResource("1_tqoex")]
 script = ExtResource("2_0680k")
+water_in_day = 3
 building_cost = 300
 health = 150
 

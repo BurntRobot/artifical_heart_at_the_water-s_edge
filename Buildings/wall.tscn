@@ -5,6 +5,7 @@
 
 [node name="Wall" instance=ExtResource("1_cr1d3")]
 script = ExtResource("2_iky6s")
+water_in_day = 0
 building_cost = 200
 health = 100
 
