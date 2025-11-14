@@ -6,10 +6,13 @@ extends Node2D
 @onready var base_map: TileMapLayer = $BaseMap
 
 signal _on_kafe_click
+signal town_hall_built
+signal kafe_built
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 	for child in get_children():
@@ -45,12 +48,15 @@ func get_builded_tiles():
 func _on_test_build_pressed() -> void:
 	var town_hall = buildings_scenes[0].instantiate()
 	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
+	town_hall.built.connect(town_hall_built.emit)
 	add_child(town_hall)
+	
 
 func _on_test_build_2_pressed() -> void:
 	var kafe = buildings_scenes[1].instantiate()
 	kafe._on_check_free_ground.connect(is_tiles_are_free_ground)
 	kafe._on_click.connect(_kafe_is_clicked)
+	kafe.built.connect(kafe_built.emit)
 	add_child(kafe)
 
 func _kafe_is_clicked():

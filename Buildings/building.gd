@@ -19,7 +19,7 @@ var can_build: bool = true
 
 signal _on_check_free_ground(_tile_map: Array[Vector2i])
 signal _on_check_free_water(_tile_map: Array[Vector2i])
-
+signal built
 
 func _ready() -> void:
 	CityResources._on_next_day.connect(_next_day)
@@ -58,6 +58,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("build"):
 			if CityResources.money - building_cost >= 0 and can_build:
 				_build()
+				built.emit()
 			else:
 				animation_player.play("cant_build")
 
