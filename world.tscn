@@ -144,6 +144,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wse8f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Button4" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -160,6 +161,10 @@ theme_override_constants/margin_bottom = 10
 
 [node name="V" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
+layout_mode = 2
+text = "Choose a date for the month"
 
 [node name="Button" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
 layout_mode = 2
@@ -182,7 +187,10 @@ script = ExtResource("6_dwbse")
 [connection signal="pressed" from="GUI/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build3" to="Game/Map" method="_on_test_build_3_pressed"]
+[connection signal="_on_choise" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_choise"]
 [connection signal="_on_walls_reinforced" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_walls_reinforced"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/Button4" to="GUI/KafeMenu" method="_on_button_4_pressed"]
+[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button" to="GUI/KafeMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button2" to="GUI/KafeMenu" method="_on_button_2_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]
 [connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]

@@ -9,3 +9,6 @@ func _on_map__on_kafe_click() -> void:
 
 func _on_kafe_menu__on_walls_reinforced() -> void:
 	map.reinforce_walls()
+
+func _on_kafe_menu__on_choise() -> void:
+	map.deactivate_kafe()

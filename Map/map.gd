@@ -23,9 +23,6 @@ func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 					_red_tiles.append(_tile)
 			child.set_red_places(_red_tiles)
 
-func _kafe_is_clicked():
-	_on_kafe_click.emit()
-
 func is_tiles_are_free_water(tiles):
 	pass
 
@@ -56,6 +53,9 @@ func _on_test_build_2_pressed() -> void:
 	kafe._on_click.connect(_kafe_is_clicked)
 	add_child(kafe)
 
+func _kafe_is_clicked():
+	_on_kafe_click.emit()
+
 func reinforce_walls():
 	for child in get_children():
 		if child is Wall and child.is_built:
@@ -69,3 +69,8 @@ func walls_take_damage():
 
 func _on_test_build_3_pressed() -> void:
 	walls_take_damage()
+
+func deactivate_kafe():
+	for child in get_children():
+		if child is Kafe and child.is_built:
+			child.deactivate_for_a_month()
