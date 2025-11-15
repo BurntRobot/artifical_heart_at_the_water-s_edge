@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyqa3xdmnxit8"]
+[gd_scene load_steps=14 format=3 uid="uid://cyqa3xdmnxit8"]
 
 [ext_resource type="Script" uid="uid://cr18urro7dm4m" path="res://Buildings/building.gd" id="1_282m8"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_gtvch"]
@@ -47,6 +47,22 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 0.5372549), Color(18.892157, 0, 0, 0.78431374), Color(1, 0, 0, 0.5372549)]
 }
 
+[sub_resource type="Animation" id="Animation_68qpb"]
+resource_name = "not_working"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.34901962, 0.34901962, 0.34901962, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_hr4wu"]
 resource_name = "start_building"
 length = 0.2
@@ -76,11 +92,29 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0.5372549), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_cmri4"]
+resource_name = "started_working"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.35, 0.35, 0.35, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xt25x"]
 _data = {
 &"RESET": SubResource("Animation_xt25x"),
 &"cant_build": SubResource("Animation_iorng"),
-&"start_building": SubResource("Animation_hr4wu")
+&"not_working": SubResource("Animation_68qpb"),
+&"start_building": SubResource("Animation_hr4wu"),
+&"started_working": SubResource("Animation_cmri4")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr4wu"]
@@ -121,6 +155,9 @@ shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_xt25x"]
+font_size = 12
+
 [node name="Building" type="Node2D"]
 script = ExtResource("1_282m8")
 
@@ -160,4 +197,37 @@ horizontal_alignment = 1
 [node name="Area2D" type="Area2D" parent="."]
 input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+
+[node name="BaseArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BaseArea"]
+
+[node name="InfoPanel" type="PanelContainer" parent="."]
+visible = false
+offset_right = 96.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hr4wu")
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Label" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "111"
+horizontal_alignment = 1
+
+[node name="WaterLabel" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Water per day:"
+label_settings = SubResource("LabelSettings_xt25x")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

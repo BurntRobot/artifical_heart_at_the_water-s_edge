@@ -80,3 +80,7 @@ func deactivate_kafe():
 	for child in get_children():
 		if child is Kafe and child.is_built:
 			child.deactivate_for_a_month()
+
+func _on_test_build_4_pressed() -> void:
+	var wall = buildings_scenes[2].instantiate()
+	add_child(wall)

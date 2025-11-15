@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dncsh5vk6ho6w"]
+[gd_scene load_steps=4 format=4 uid="uid://dncsh5vk6ho6w"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_tqoex"]
 [ext_resource type="Texture2D" uid="uid://dxawsqfait5iy" path="res://Buildings/barracks/renders/idle/45/000.png" id="2_8hs10"]
 [ext_resource type="Script" uid="uid://cahhpgukdsyca" path="res://Buildings/kafe.gd" id="2_0680k"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0680k"]
-size = Vector2(75, 64)
 
 [node name="Kafe" instance=ExtResource("1_tqoex")]
 script = ExtResource("2_0680k")
@@ -29,12 +26,21 @@ offset_bottom = -78.0
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(1.5, -15)
-shape = SubResource("RectangleShape2D_0680k")
+polygon = PackedVector2Array(-1.5, 42, -46.5, 15, -45.5, 5, -20.5, -8, -20.5, -24, -10.5, -44, 33.5, -22, 43.5, -14, 43.5, 2, 39.5, 4, 39.5, 13, 42.5, 15)
 
 [node name="CountdownLabel" type="Label" parent="." index="7"]
-offset_left = 35.0
-offset_top = -59.0
-offset_right = 75.0
-offset_bottom = -36.0
+offset_left = -44.0
+offset_top = -62.0
+offset_right = -4.0
+offset_bottom = -39.0
+
+[node name="CollisionPolygon2D" parent="BaseArea" index="0"]
+polygon = PackedVector2Array(0, 26, -45, 0, 0, -28, 44, -1)
+
+[node name="InfoPanel" parent="." index="9"]
+offset_left = 30.0
+offset_top = -86.0
+offset_right = 126.0
+offset_bottom = -44.0
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

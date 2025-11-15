@@ -8,6 +8,9 @@ class_name Building
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var health_label: Label = $HealthBar/Label
 @onready var area_2d: Area2D = $Area2D
+@onready var water_label: Label = $InfoPanel/MarginContainer/VBoxContainer/WaterLabel
+@onready var info_panel: PanelContainer = $InfoPanel
+@onready var label: Label = $InfoPanel/MarginContainer/VBoxContainer/Label
 
 @export var water_in_day = 1
 @export var building_cost: int = 400
@@ -15,6 +18,7 @@ class_name Building
 @export var health: int = 250
 var current_health: int
 
+var is_working = true
 
 var rotated: bool = false
 var can_build: bool = true
@@ -23,6 +27,9 @@ signal _on_check_free_ground(_tile_map: Array[Vector2i])
 signal _on_check_free_water(_tile_map: Array[Vector2i])
 signal built
 
+const tile_size: Vector2 = Vector2(30, 18)
+const tile_size_2: Vector2 = Vector2(15, 9)
+
 func _ready() -> void:
 	CityResources._on_next_day.connect(_next_day)
 	CityResources._on_next_month.connect(_next_month)
@@ -30,11 +37,15 @@ func _ready() -> void:
 	health_bar.max_value = health
 	current_health = health
 	health_bar.value = current_health
+	label.text = self.name
 
 func _physics_process(_delta: float) -> void:
 	if not is_built:
-		if position != get_global_mouse_position().snapped(Vector2(30, 18)):
-			position = get_global_mouse_position().snapped(Vector2(30, 18))
+		var near_position = snap_iso(get_global_mouse_position(), tile_size)
+		if position != near_position:
+			position = near_position
+		#if position != get_global_mouse_position().snapped(tile_size):
+		#	position = get_global_mouse_position().snapped(tile_size)
 		if CityResources.money - building_cost < 0 or CityResources.water < water_in_day:
 			sprite.self_modulate = Color('ff000089')
 			base._set_all_tiles_to_red()
@@ -54,6 +65,14 @@ func _physics_process(_delta: float) -> void:
 		if current_health <= 0:
 			queue_free()
 
+func snap_iso(pos: Vector2, tile_size_var: Vector2) -> Vector2:
+	var half_tile_size: Vector2 = tile_size_var * 0.5
+	
+	var grid_x: float = round((pos.x / half_tile_size.x + pos.y / half_tile_size.y) * 0.5)
+	var grid_y: float = round((pos.y / half_tile_size.y - pos.x / half_tile_size.x) * 0.5)
+	
+	return Vector2(grid_x-grid_y, grid_x+grid_y) * half_tile_size
+
 func _input(event: InputEvent) -> void:
 	if not is_built:
 		if event.is_action_pressed("rotate"):
@@ -62,6 +81,7 @@ func _input(event: InputEvent) -> void:
 			if CityResources.money - building_cost >= 0 and can_build:
 				_build()
 				built.emit()
+				water_label.text = "Water per day: " + str(water_in_day)
 			else:
 				animation_player.play("cant_build")
 
@@ -81,12 +101,22 @@ func _next_day():
 		area_2d.input_pickable = true
 	if is_built:
 		if CityResources.water >= water_in_day:
+			is_working = true
+			$Sprite.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 			CityResources.water -= water_in_day
+			water_label.text = "Water per day: " + str(water_in_day)
 		else:
-			pass # if water down deactivate
+			is_working = false
+			$Sprite.self_modulate = Color(0.349, 0.349, 0.349, 1.0)
 func _next_month(): pass
 
 func set_red_places(_red_tiles: Array[Vector2i]):
 	can_build = false
 	for _tile in _red_tiles:
 		base.set_cell(_tile, 0, Vector2(3, 0))
+
+func _on_area_2d_mouse_entered() -> void:
+	info_panel.show()
+
+func _on_area_2d_mouse_exited() -> void:
+	info_panel.hide()
