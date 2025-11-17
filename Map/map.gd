@@ -44,21 +44,6 @@ func is_tile_builded():
 func get_builded_tiles():
 	return buildings_map.get_used_cells_by_id(0, Vector2i(2, 0))
 
-
-func _on_test_build_pressed() -> void:
-	var town_hall = buildings_scenes[0].instantiate()
-	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
-	town_hall.built.connect(town_hall_built.emit)
-	add_child(town_hall)
-	
-
-func _on_test_build_2_pressed() -> void:
-	var kafe = buildings_scenes[1].instantiate()
-	kafe._on_check_free_ground.connect(is_tiles_are_free_ground)
-	kafe._on_click.connect(_kafe_is_clicked)
-	kafe.built.connect(kafe_built.emit)
-	add_child(kafe)
-
 func _kafe_is_clicked():
 	_on_kafe_click.emit()
 
@@ -81,6 +66,35 @@ func deactivate_kafe():
 		if child is Kafe and child.is_built:
 			child.deactivate_for_a_month()
 
+func _on_test_build_pressed() -> void:
+	var town_hall = buildings_scenes[0].instantiate()
+	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
+	town_hall.built.connect(town_hall_built.emit)
+	add_child(town_hall)
+	
+
+func _on_test_build_2_pressed() -> void:
+	var kafe = buildings_scenes[1].instantiate()
+	kafe._on_check_free_ground.connect(is_tiles_are_free_ground)
+	kafe._on_click.connect(_kafe_is_clicked)
+	kafe.built.connect(kafe_built.emit)
+	add_child(kafe)
+
 func _on_test_build_4_pressed() -> void:
 	var wall = buildings_scenes[2].instantiate()
 	add_child(wall)
+
+func _on_test_build_5_pressed() -> void:
+	var house = buildings_scenes[4].instantiate()
+	add_child(house)
+
+func _on_test_build_6_pressed() -> void:
+	var repair_station = buildings_scenes[5].instantiate()
+	add_child(repair_station)
+
+func _on_test_build_7_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_test_build_8_pressed() -> void:
+	var mine = buildings_scenes[3].instantiate()
+	add_child(mine)

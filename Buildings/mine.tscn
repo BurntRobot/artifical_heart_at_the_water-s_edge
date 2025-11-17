@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=4 uid="uid://byfdh4iyuq2h6"]
+
+[ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_koyvs"]
+[ext_resource type="Texture2D" uid="uid://dmiayimtsju6" path="res://Buildings/weaponsmith/renders/idle/45/000.png" id="2_01ouk"]
+[ext_resource type="Script" uid="uid://b2nq7s08x5kpf" path="res://Buildings/mine.gd" id="2_jdrsi"]
+
+[node name="Mine" instance=ExtResource("1_koyvs")]
+script = ExtResource("2_jdrsi")
+water_in_day = 2
+building_cost = 200
+health = 150
+
+[node name="Base" parent="." index="0"]
+tile_map_data = PackedByteArray("AAABAAIAAAACAAAAAAAAAAIAAAACAAAAAAD//wIAAAACAAAAAAD+/wIAAAACAAAAAAD9/wIAAAACAAAAAAD9/wEAAAACAAAAAAD9/wAAAAACAAAAAAD9////AAACAAAAAAD9//7/AAACAAAAAAD+//7/AAACAAAAAAD///7/AAACAAAAAAAAAP7/AAACAAAAAAABAP7/AAACAAAAAAABAP//AAACAAAAAAABAAAAAAACAAAAAAABAAEAAAACAAAAAAAAAAEAAAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAD/////AAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD+/wEAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAA=")
+
+[node name="Sprite" parent="." index="2"]
+position = Vector2(0, -30)
+texture = ExtResource("2_01ouk")
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -18.0
+offset_top = -108.0
+offset_right = 22.0
+offset_bottom = -91.0
