@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dblndnpmi8w20"]
+[gd_scene load_steps=5 format=3 uid="uid://dblndnpmi8w20"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_ojg3m"]
 [ext_resource type="Texture2D" uid="uid://cc2sa361f1dfm" path="res://Buildings/Isometric Buildings/PNG/buildingTiles_026.png" id="2_2kccs"]
 [ext_resource type="Script" uid="uid://bkq7sv227mml6" path="res://Buildings/house.gd" id="2_diyid"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xt25x"]
+font_size = 12
 
 [node name="Building" instance=ExtResource("1_ojg3m")]
 script = ExtResource("2_diyid")
@@ -19,14 +22,24 @@ scale = Vector2(0.3560606, 0.35728344)
 texture = ExtResource("2_2kccs")
 
 [node name="HealthBar" parent="." index="5"]
-offset_left = -19.0
-offset_top = -78.0
-offset_right = 21.0
-offset_bottom = -61.0
+offset_left = -20.0
+offset_top = -48.0
+offset_right = 20.0
+offset_bottom = -31.0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+polygon = PackedVector2Array(-23, 9, -23, -3, -18, -6, -18, -15, 0, -24, 20, -14, 20, -4, 24, -3, 24, 9, 0, 22)
+
+[node name="CollisionPolygon2D" parent="BaseArea" index="0"]
+polygon = PackedVector2Array(-30, 8, 0, -10, 30, 8, 0, 27)
 
 [node name="InfoPanel" parent="." index="8"]
-visible = false
-offset_left = 37.0
-offset_top = -76.0
-offset_right = 180.0
-offset_bottom = -28.0
+offset_left = 23.0
+offset_top = -63.0
+offset_right = 166.0
+offset_bottom = -15.0
+
+[node name="VillagersLabel" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+text = "Villagers: 10"
+label_settings = SubResource("LabelSettings_xt25x")

@@ -84,6 +84,9 @@ func _input(event: InputEvent) -> void:
 				water_label.text = "Water per day: " + str(water_in_day)
 			else:
 				animation_player.play("cant_build")
+		if event.is_action_pressed("unbuild"):
+			queue_free()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _rotate():
 	base.rotate_base(rotated)

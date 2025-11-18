@@ -4,18 +4,15 @@ class_name Kafe
 signal _on_click
 
 @onready var countdown_label: Label = $CountdownLabel
+@onready var kafe_label: Label = $InfoPanel/MarginContainer/VBoxContainer/KafeLabel
 
 var is_deactivated = false
 var countdown = 30
 
-'''
-func _input(event: InputEvent) -> void:
-	if not is_built:
-		super._input(event)
-	elif is_built:
-		if event.is_action_pressed("build"):
-			_on_click.emit()
-'''
+
+func _ready() -> void:
+	super._ready()
+	kafe_label.text = "Kafe open!"
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not is_built:
@@ -26,6 +23,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 
 func deactivate_for_a_month():
 	is_deactivated = true
+	kafe_label.text = "Kafe closed!"
 	countdown_label.text = str(countdown)
 
 func _next_day():
@@ -37,3 +35,4 @@ func _next_day():
 			is_deactivated = false
 			countdown = 30
 			countdown_label.text = ""
+			kafe_label.text = "Kafe open!"

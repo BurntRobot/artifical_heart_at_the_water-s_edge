@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=4 uid="uid://byfdh4iyuq2h6"]
+[gd_scene load_steps=5 format=4 uid="uid://byfdh4iyuq2h6"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_koyvs"]
 [ext_resource type="Texture2D" uid="uid://dmiayimtsju6" path="res://Buildings/weaponsmith/renders/idle/45/000.png" id="2_01ouk"]
 [ext_resource type="Script" uid="uid://b2nq7s08x5kpf" path="res://Buildings/mine.gd" id="2_jdrsi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xt25x"]
+font_size = 12
 
 [node name="Mine" instance=ExtResource("1_koyvs")]
 script = ExtResource("2_jdrsi")
@@ -24,6 +27,12 @@ offset_top = -83.0
 offset_right = 20.0
 offset_bottom = -66.0
 
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+polygon = PackedVector2Array(-38, 0, -38, -17, -20, -26, -20, -49, -9, -60, 21, -44, 20, -32, 41, -21, 40, -1, 2, 18)
+
+[node name="CollisionPolygon2D" parent="BaseArea" index="0"]
+polygon = PackedVector2Array(-45, -1, 0, -28, 45, -1, 0, 26)
+
 [node name="InfoPanel" parent="." index="8"]
 offset_left = 25.0
 offset_top = -93.0
@@ -32,3 +41,9 @@ offset_bottom = -35.0
 
 [node name="WaterLabel" parent="InfoPanel/MarginContainer/VBoxContainer" index="1"]
 text = ""
+label_settings = SubResource("LabelSettings_xt25x")
+
+[node name="MoneyLabel" type="Label" parent="InfoPanel/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+text = "Money per day: 10"
+label_settings = SubResource("LabelSettings_xt25x")

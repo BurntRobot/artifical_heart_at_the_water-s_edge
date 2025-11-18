@@ -21,15 +21,9 @@ offset_top = -123.0
 offset_right = 20.0
 offset_bottom = -106.0
 
-[node name="Area2D" parent="." index="6"]
-visible = false
-
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-1.5, -25)
 polygon = PackedVector2Array(-47.5, 26, -47.5, 2, -11.5, -20, -10.5, -32, 1.5, -66, 13.5, -32, 13.5, -20, 54.5, 3, 50.5, 25, 1.5, 52)
-
-[node name="BaseArea" parent="." index="7"]
-visible = false
 
 [node name="CollisionPolygon2D" parent="BaseArea" index="0"]
 polygon = PackedVector2Array(0, 44, -75, -1, 0, -46, 75, -1)
