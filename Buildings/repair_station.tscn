@@ -7,10 +7,11 @@
 water_in_day = 2
 
 [node name="Base" parent="." index="0"]
-tile_map_data = PackedByteArray("AAABAAIAAAACAAAAAAAAAAIAAAACAAAAAAD//wIAAAACAAAAAAD+/wIAAAACAAAAAAABAAEAAAACAAAAAAABAAAAAAACAAAAAAABAP//AAACAAAAAAAAAP//AAACAAAAAAD/////AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAD//wEAAAACAAAAAAAAAAEAAAACAAAAAAAAAAAAAAACAAAAAAD//wAAAAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wEAAAACAAAAAAAAAAEAAAACAAAAAAAAAAAAAAACAAAAAAD//wAAAAACAAAAAAD+/wEAAAACAAAAAAD+/wAAAAACAAAAAAA=")
 
 [node name="Sprite" parent="." index="2"]
-position = Vector2(0, -24)
+position = Vector2(-6, -14)
+scale = Vector2(0.6015625, 0.6015625)
 texture = ExtResource("2_3q7p7")
 
 [node name="HealthBar" parent="." index="5"]
