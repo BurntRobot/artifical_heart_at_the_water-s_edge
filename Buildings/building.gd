@@ -81,7 +81,7 @@ func _input(event: InputEvent) -> void:
 			if CityResources.money - building_cost >= 0 and can_build:
 				_build()
 				built.emit()
-				water_label.text = "Water per day: " + str(water_in_day)
+				water_label.text = "Water per day: -" + str(water_in_day)
 			else:
 				animation_player.play("cant_build")
 		if event.is_action_pressed("unbuild"):
@@ -107,7 +107,7 @@ func _next_day():
 			is_working = true
 			$Sprite.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 			CityResources.water -= water_in_day
-			water_label.text = "Water per day: " + str(water_in_day)
+			water_label.text = "Water per day: -" + str(water_in_day)
 		else:
 			is_working = false
 			$Sprite.self_modulate = Color(0.349, 0.349, 0.349, 1.0)

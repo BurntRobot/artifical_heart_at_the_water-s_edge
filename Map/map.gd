@@ -55,7 +55,7 @@ func reinforce_walls():
 
 func walls_take_damage():
 	for child in get_children():
-		if child is Wall and child.is_built:
+		if child is Building and child.is_built:
 			child.current_health -= 100
 
 func _on_test_build_3_pressed() -> void:

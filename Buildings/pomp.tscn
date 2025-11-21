@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=4 uid="uid://kucf7nwrdtht"]
+[gd_scene load_steps=4 format=4 uid="uid://kucf7nwrdtht"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_ru8ak"]
 [ext_resource type="Texture2D" uid="uid://b8rwdqktfaf18" path="res://Buildings/Isometric Buildings/PNG/buildingTiles_009.png" id="2_nqaqx"]
+[ext_resource type="Script" uid="uid://6n0m4d36px4e" path="res://Buildings/pomp.gd" id="2_xl7s3"]
 
 [node name="Pomp" instance=ExtResource("1_ru8ak")]
+script = ExtResource("2_xl7s3")
+water_in_day = 10
+building_cost = 300
 
 [node name="Base" parent="." index="0"]
 tile_map_data = PackedByteArray("AAD+/wEAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAD/////AAACAAAAAAAAAP//AAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAACAAAAAAD//wEAAAACAAAAAAD//wAAAAACAAAAAAA=")
@@ -29,7 +33,6 @@ polygon = PackedVector2Array(0, 26, -43, 0, -40, -23, -29, -28, -29, -46, 1, -63
 polygon = PackedVector2Array(-45, -1, 0, -27, 43, -1, -1, 26)
 
 [node name="InfoPanel" parent="." index="8"]
-visible = true
 offset_left = 43.0
 offset_top = -87.0
 offset_right = 139.0
