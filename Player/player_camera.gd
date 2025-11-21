@@ -17,7 +17,7 @@ func _physics_process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed and zoom < Vector2(2.0, 2.0):
 			zoom += Vector2(0.2, 0.2)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed and zoom > Vector2(0.2, 0.2):
 			zoom -= Vector2(0.2, 0.2) #TODO: bug with <0

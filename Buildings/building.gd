@@ -123,3 +123,12 @@ func _on_area_2d_mouse_entered() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	info_panel.hide()
+
+func heal(ammount: int):
+	if current_health < health:
+		current_health += ammount
+	if current_health > health:
+		current_health = health
+
+func can_be_healed():
+	return current_health < health
