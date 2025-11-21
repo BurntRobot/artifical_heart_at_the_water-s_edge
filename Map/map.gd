@@ -93,7 +93,8 @@ func _on_test_build_6_pressed() -> void:
 	add_child(repair_station)
 
 func _on_test_build_7_pressed() -> void:
-	pass # Replace with function body.
+	var pomp = buildings_scenes[6].instantiate()
+	add_child(pomp)
 
 func _on_test_build_8_pressed() -> void:
 	var mine = buildings_scenes[3].instantiate()

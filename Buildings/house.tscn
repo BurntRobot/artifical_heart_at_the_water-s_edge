@@ -7,7 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_xt25x"]
 font_size = 12
 
-[node name="Building" instance=ExtResource("1_ojg3m")]
+[node name="House" instance=ExtResource("1_ojg3m")]
 script = ExtResource("2_diyid")
 water_in_day = 2
 building_cost = 100
