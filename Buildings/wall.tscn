@@ -31,8 +31,5 @@ visible = false
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 polygon = PackedVector2Array(-15, 0, -15, -9, 0, -17, 15, -9, 15, 0, 0, 9)
 
-[node name="BaseArea" parent="." index="7"]
-visible = false
-
 [node name="CollisionPolygon2D" parent="BaseArea" index="0"]
-polygon = PackedVector2Array(-15, 0, 0, 9, 15, 0, 0, -9)
+polygon = PackedVector2Array(-13, 0, 0, 7, 12, 0, 0, -8)

@@ -12,6 +12,8 @@ class_name Building
 @onready var info_panel: PanelContainer = $InfoPanel
 @onready var label: Label = $InfoPanel/MarginContainer/VBoxContainer/Label
 
+@onready var base_area: Area2D = $BaseArea
+
 @export var water_in_day = 1
 @export var building_cost: int = 400
 @export var is_built: bool = false
@@ -46,7 +48,7 @@ func _physics_process(_delta: float) -> void:
 			position = near_position
 		#if position != get_global_mouse_position().snapped(tile_size):
 		#	position = get_global_mouse_position().snapped(tile_size)
-		if CityResources.money - building_cost < 0 or CityResources.water < water_in_day:
+		if CityResources.money - building_cost < 0 or CityResources.water < water_in_day or something_placed_already():
 			sprite.self_modulate = Color('ff000089')
 			base._set_all_tiles_to_red()
 			can_build = false
@@ -64,6 +66,13 @@ func _physics_process(_delta: float) -> void:
 		health_bar.max_value = health
 		if current_health <= 0:
 			queue_free()
+
+func something_placed_already():
+	for _some_area in base_area.get_overlapping_areas():
+		print(_some_area != base_area)
+		if _some_area.name == "BaseArea" and _some_area != base_area:
+			return true
+	return false
 
 func snap_iso(pos: Vector2, tile_size_var: Vector2) -> Vector2:
 	var half_tile_size: Vector2 = tile_size_var * 0.5

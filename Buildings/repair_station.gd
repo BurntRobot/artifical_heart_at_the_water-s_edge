@@ -1,7 +1,6 @@
 extends Building
 
 @onready var area_2d_2: Area2D = $Area2D2
-@onready var base_area: Area2D = $BaseArea
 
 var healing_ammount = 10
 @onready var water_label_2: Label = $InfoPanel/MarginContainer/VBoxContainer/WaterLabel2
