@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=21 format=4 uid="uid://cxnlncaghbgq2"]
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b67btrk5qfkep" path="res://Buildings/repair_station.tscn" id="8_udxuc"]
 [ext_resource type="PackedScene" uid="uid://kucf7nwrdtht" path="res://Buildings/pomp.tscn" id="9_2u3nc"]
 [ext_resource type="Script" uid="uid://cr71vyvv3bb3e" path="res://kafe_menu.gd" id="10_ic0uy"]
+[ext_resource type="PackedScene" uid="uid://ck63nsp31aeq5" path="res://Waves/wave.tscn" id="12_ikiii"]
 [ext_resource type="Script" uid="uid://bupbvvcs0bj30" path="res://GUI/info_label.gd" id="12_udxuc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2u3nc"]
@@ -56,15 +57,13 @@ limit_left = 0
 limit_top = 0
 limit_right = 930
 limit_bottom = 670
-position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 1.0
-drag_top_margin = 1.0
-drag_right_margin = 1.0
-drag_bottom_margin = 1.0
 editor_draw_limits = true
 script = ExtResource("4_aqk2v")
+
+[node name="Wave" parent="Game" instance=ExtResource("12_ikiii")]
+position = Vector2(315, 314)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 process_mode = 3

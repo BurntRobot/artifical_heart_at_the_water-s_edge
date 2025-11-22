@@ -66,6 +66,7 @@ func _physics_process(_delta: float) -> void:
 		health_bar.max_value = health
 		if current_health <= 0:
 			queue_free()
+			# destruction animation
 
 func you_cant_build():
 	return CityResources.money - building_cost < 0 or CityResources.water < water_in_day or something_placed_already()
@@ -83,6 +84,9 @@ func snap_iso(pos: Vector2, tile_size_var: Vector2) -> Vector2:
 	var grid_y: float = round((pos.y / half_tile_size.y - pos.x / half_tile_size.x) * 0.5)
 	
 	return Vector2(grid_x-grid_y, grid_x+grid_y) * half_tile_size
+
+func hurt_for(damage: int):
+	current_health -= damage
 
 func _input(event: InputEvent) -> void:
 	if not is_built:

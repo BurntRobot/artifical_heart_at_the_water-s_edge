@@ -3,7 +3,7 @@ class_name Wall
 
 
 func _on_area_2d_mouse_entered() -> void:
-	pass
+	health_bar.show()
 
 func _on_area_2d_mouse_exited() -> void:
-	pass
+	health_bar.hide()
