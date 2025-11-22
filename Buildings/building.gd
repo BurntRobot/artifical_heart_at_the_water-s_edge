@@ -48,7 +48,7 @@ func _physics_process(_delta: float) -> void:
 			position = near_position
 		#if position != get_global_mouse_position().snapped(tile_size):
 		#	position = get_global_mouse_position().snapped(tile_size)
-		if CityResources.money - building_cost < 0 or CityResources.water < water_in_day or something_placed_already():
+		if you_cant_build():
 			sprite.self_modulate = Color('ff000089')
 			base._set_all_tiles_to_red()
 			can_build = false
@@ -67,9 +67,11 @@ func _physics_process(_delta: float) -> void:
 		if current_health <= 0:
 			queue_free()
 
+func you_cant_build():
+	return CityResources.money - building_cost < 0 or CityResources.water < water_in_day or something_placed_already()
+
 func something_placed_already():
 	for _some_area in base_area.get_overlapping_areas():
-		print(_some_area != base_area)
 		if _some_area.name == "BaseArea" and _some_area != base_area:
 			return true
 	return false

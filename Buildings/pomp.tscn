@@ -13,7 +13,7 @@ building_cost = 300
 tile_map_data = PackedByteArray("AAD+/wEAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAD/////AAACAAAAAAAAAP//AAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAACAAAAAAD//wEAAAACAAAAAAD//wAAAAACAAAAAAA=")
 
 [node name="BaseForWater" parent="." index="1"]
-tile_map_data = PackedByteArray("AAACAAAAAAACAAAAAAABAAAAAAACAAAAAAADAAEAAAACAAAAAAADAAAAAAACAAAAAAADAP//AAACAAAAAAAEAAEAAAACAAAAAAAEAAAAAAACAAAAAAAEAP//AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAADAAAAAAACAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAA=")
 
 [node name="Sprite" parent="." index="2"]
 position = Vector2(1, -19.000002)
@@ -32,7 +32,12 @@ polygon = PackedVector2Array(0, 26, -43, 0, -40, -23, -29, -28, -29, -46, 1, -63
 [node name="CollisionPolygon2D" parent="BaseArea" index="0"]
 polygon = PackedVector2Array(-45, -1, 0, -27, 43, -1, -1, 26)
 
-[node name="InfoPanel" parent="." index="8"]
+[node name="WaterArea" type="Area2D" parent="." index="8"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterArea" index="0"]
+polygon = PackedVector2Array(54, 35, 60, 31, 67, 36, 60, 40)
+
+[node name="InfoPanel" parent="." index="9"]
 offset_left = 43.0
 offset_top = -87.0
 offset_right = 139.0
