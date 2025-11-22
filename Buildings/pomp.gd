@@ -1,4 +1,5 @@
 extends Building
+class_name Pomp
 
 func _next_day():
 	if not area_2d.input_pickable and is_built:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=20 format=4 uid="uid://cxnlncaghbgq2"]
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
@@ -16,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://b67btrk5qfkep" path="res://Buildings/repair_station.tscn" id="8_udxuc"]
 [ext_resource type="PackedScene" uid="uid://kucf7nwrdtht" path="res://Buildings/pomp.tscn" id="9_2u3nc"]
 [ext_resource type="Script" uid="uid://cr71vyvv3bb3e" path="res://kafe_menu.gd" id="10_ic0uy"]
+[ext_resource type="Script" uid="uid://bupbvvcs0bj30" path="res://GUI/info_label.gd" id="12_udxuc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2u3nc"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wse8f"]
 bg_color = Color(0.48570347, 0.48570353, 0.4857034, 1)
@@ -124,6 +129,20 @@ theme_override_font_sizes/font_size = 10
 text = "Wave"
 alignment = 0
 
+[node name="InfoLabel" type="RichTextLabel" parent="GUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -169.0
+offset_top = -74.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/outline_size = 5
+horizontal_alignment = 2
+script = ExtResource("12_udxuc")
+
 [node name="MoneyLabel" type="Label" parent="GUI"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -131,6 +150,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
+label_settings = SubResource("LabelSettings_2u3nc")
 script = ExtResource("5_036b0")
 
 [node name="DateLabel" type="Label" parent="GUI"]
@@ -141,11 +161,13 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+label_settings = SubResource("LabelSettings_2u3nc")
 script = ExtResource("6_pkg7o")
 
 [node name="ResourcesLabel" type="Label" parent="GUI"]
 offset_right = 40.0
 offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_2u3nc")
 script = ExtResource("7_gbfbk")
 
 [node name="KafeMenu" type="Control" parent="GUI"]
@@ -219,6 +241,7 @@ script = ExtResource("6_dwbse")
 [connection signal="_on_kafe_click" from="Game/Map" to="." method="_on_map__on_kafe_click"]
 [connection signal="kafe_built" from="Game/Map" to="." method="_on_map_kafe_built"]
 [connection signal="town_hall_built" from="Game/Map" to="." method="_on_map_town_hall_built"]
+[connection signal="water_down_signal" from="Game/Map" to="GUI/InfoLabel" method="_on_map_water_down_signal"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/test_build4" to="Game/Map" method="_on_test_build_4_pressed"]
@@ -233,4 +256,5 @@ script = ExtResource("6_dwbse")
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button" to="GUI/KafeMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button2" to="GUI/KafeMenu" method="_on_button_2_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]
+[connection signal="timeout" from="DayTimer" to="Game/Map" method="_on_day_timer_timeout"]
 [connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]

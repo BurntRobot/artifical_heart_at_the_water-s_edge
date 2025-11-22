@@ -8,11 +8,11 @@ extends Node2D
 signal _on_kafe_click
 signal town_hall_built
 signal kafe_built
+signal water_down_signal
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 
 func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 	for child in get_children():
@@ -71,7 +71,6 @@ func _on_test_build_pressed() -> void:
 	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
 	town_hall.built.connect(town_hall_built.emit)
 	add_child(town_hall)
-	
 
 func _on_test_build_2_pressed() -> void:
 	var kafe = buildings_scenes[1].instantiate()
@@ -99,3 +98,12 @@ func _on_test_build_7_pressed() -> void:
 func _on_test_build_8_pressed() -> void:
 	var mine = buildings_scenes[3].instantiate()
 	add_child(mine)
+
+func _on_day_timer_timeout() -> void:
+	var water_down = false
+	for child in get_children():
+		if child is Building and child.is_built and not child.is_working and child is not Pomp:
+			child.current_health -= 5
+			water_down = true
+	if water_down:
+		water_down_signal.emit()
