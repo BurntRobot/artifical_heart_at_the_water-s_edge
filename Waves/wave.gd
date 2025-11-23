@@ -1,12 +1,12 @@
 extends Area2D
 
-@export var damage = 300
-@export var weakening = 50
+@export var damage: float = 300.0
+@export var weakening: float = 50.0
 @onready var timer: Timer = $Timer
 
 
 func _physics_process(delta: float) -> void:
-	position += Vector2(-5, -3) / 10
+	position += Vector2(-30, -18) * delta
 	if damage <= 0:
 		queue_free()
 
@@ -26,3 +26,6 @@ func _on_area_exited(area: Area2D) -> void:
 
 func _on_timer_timeout() -> void:
 	damage -= weakening
+
+func set_damage(strength: float):
+	damage *= strength

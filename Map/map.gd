@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var buildings_map: TileMapLayer = $BuildingsMap
 @onready var base_map: TileMapLayer = $BaseMap
+@onready var wave_spawner: Node2D = $WaveSpawner
 
 signal _on_kafe_click
 signal town_hall_built
@@ -13,6 +14,7 @@ signal water_down_signal
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	wave_spawner.start_wave(1.0)
 
 func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 	for child in get_children():

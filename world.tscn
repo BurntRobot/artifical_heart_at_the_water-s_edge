@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=22 format=4 uid="uid://cxnlncaghbgq2"]
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b67btrk5qfkep" path="res://Buildings/repair_station.tscn" id="8_udxuc"]
 [ext_resource type="PackedScene" uid="uid://kucf7nwrdtht" path="res://Buildings/pomp.tscn" id="9_2u3nc"]
 [ext_resource type="Script" uid="uid://cr71vyvv3bb3e" path="res://kafe_menu.gd" id="10_ic0uy"]
+[ext_resource type="PackedScene" uid="uid://cmq8f0prbvers" path="res://Waves/wave_spawner.tscn" id="11_cbp6q"]
 [ext_resource type="PackedScene" uid="uid://ck63nsp31aeq5" path="res://Waves/wave.tscn" id="12_ikiii"]
 [ext_resource type="Script" uid="uid://bupbvvcs0bj30" path="res://GUI/info_label.gd" id="12_udxuc"]
 
@@ -51,6 +52,258 @@ tile_set = ExtResource("1_fj7yv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Map/Water"]
 polygon = PackedVector2Array(128, 709, 100, 692, 145, 662, 133, 654, 160, 636, 149, 628, 173, 611, 162, 602, 192, 584, 177, 574, 203, 556, 192, 546, 219, 530, 206, 523, 220, 512, 211, 505, 222, 493, 210, 488, 218, 473, 210, 466, 215, 451, 197, 442, 196, 399, 181, 394, 182, 339, 207, 322, 196, 315, 268, 268, 253, 261, 327, 216, 313, 205, 386, 162, 374, 152, 393, 158, 404, 153, 464, 187, 479, 178, 525, 206, 539, 198, 586, 223, 697, 153, 688, 145, 766, 96, 780, 104, 811, 89, 827, 98, 838, 90, 902, 91, 911, 81, 945, 82, 975, 83, 990, 71, 1007, 79, 1055, 250, 1047, 714)
+
+[node name="WaveSpawner" parent="Game/Map" instance=ExtResource("11_cbp6q")]
+wave_scene = ExtResource("12_ikiii")
+
+[node name="Marker2D" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(975, 693)
+
+[node name="Marker2D33" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(990, 684)
+
+[node name="Marker2D34" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(960, 702)
+
+[node name="Marker2D35" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(930, 720)
+
+[node name="Marker2D36" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(915, 747)
+
+[node name="Marker2D37" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(900, 774)
+
+[node name="Marker2D38" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(870, 792)
+
+[node name="Marker2D39" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(855, 819)
+
+[node name="Marker2D40" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(840, 846)
+
+[node name="Marker2D41" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(810, 864)
+
+[node name="Marker2D42" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(780, 882)
+
+[node name="Marker2D43" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(765, 909)
+
+[node name="Marker2D44" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(750, 936)
+
+[node name="Marker2D45" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(720, 954)
+
+[node name="Marker2D46" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1020, 666)
+
+[node name="Marker2D47" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1050, 648)
+
+[node name="Marker2D48" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1080, 639)
+
+[node name="Marker2D49" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1095, 639)
+
+[node name="Marker2D50" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1110, 639)
+
+[node name="Marker2D51" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1140, 630)
+
+[node name="Marker2D52" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1170, 612)
+
+[node name="Marker2D53" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1200, 603)
+
+[node name="Marker2D54" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1215, 603)
+
+[node name="Marker2D55" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1230, 603)
+
+[node name="Marker2D56" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1260, 594)
+
+[node name="Marker2D57" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1290, 576)
+
+[node name="Marker2D58" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1320, 558)
+
+[node name="Marker2D59" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1350, 549)
+
+[node name="Marker2D60" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1365, 549)
+
+[node name="Marker2D61" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1380, 549)
+
+[node name="Marker2D62" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1410, 540)
+
+[node name="Marker2D63" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1440, 522)
+
+[node name="Marker2D64" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1470, 504)
+
+[node name="Marker2D65" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1500, 495)
+
+[node name="Marker2D66" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1515, 495)
+
+[node name="Marker2D67" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1530, 495)
+
+[node name="Marker2D68" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1560, 486)
+
+[node name="Marker2D69" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1590, 468)
+
+[node name="Marker2D70" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1620, 450)
+
+[node name="Marker2D71" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1620, 450)
+
+[node name="Marker2D2" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(945, 711)
+
+[node name="Marker2D3" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(915, 729)
+
+[node name="Marker2D4" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(915, 765)
+
+[node name="Marker2D5" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(885, 783)
+
+[node name="Marker2D6" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(855, 801)
+
+[node name="Marker2D7" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(855, 837)
+
+[node name="Marker2D8" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(825, 855)
+
+[node name="Marker2D9" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(795, 873)
+
+[node name="Marker2D10" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(765, 891)
+
+[node name="Marker2D11" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(765, 927)
+
+[node name="Marker2D12" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(735, 945)
+
+[node name="Marker2D13" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(705, 963)
+
+[node name="Marker2D72" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(705, 972)
+
+[node name="Marker2D73" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(705, 981)
+
+[node name="Marker2D74" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(690, 990)
+
+[node name="Marker2D75" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(675, 999)
+
+[node name="Marker2D76" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(660, 1008)
+
+[node name="Marker2D77" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(645, 1017)
+
+[node name="Marker2D78" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(645, 1026)
+
+[node name="Marker2D79" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(645, 1035)
+
+[node name="Marker2D80" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(630, 1044)
+
+[node name="Marker2D81" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(615, 1053)
+
+[node name="Marker2D82" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(600, 1062)
+
+[node name="Marker2D83" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(600, 1062)
+
+[node name="Marker2D14" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1005, 675)
+
+[node name="Marker2D15" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1035, 657)
+
+[node name="Marker2D16" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1065, 639)
+
+[node name="Marker2D17" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1125, 639)
+
+[node name="Marker2D18" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1155, 621)
+
+[node name="Marker2D19" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1185, 603)
+
+[node name="Marker2D20" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1245, 603)
+
+[node name="Marker2D21" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1275, 585)
+
+[node name="Marker2D22" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1305, 567)
+
+[node name="Marker2D23" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1305, 567)
+
+[node name="Marker2D24" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1335, 549)
+
+[node name="Marker2D25" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1395, 549)
+
+[node name="Marker2D26" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1425, 531)
+
+[node name="Marker2D27" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1455, 513)
+
+[node name="Marker2D28" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1485, 495)
+
+[node name="Marker2D29" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1545, 495)
+
+[node name="Marker2D30" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1575, 477)
+
+[node name="Marker2D31" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1605, 459)
+
+[node name="Marker2D32" type="Marker2D" parent="Game/Map/WaveSpawner"]
+position = Vector2(1635, 441)
 
 [node name="PlayerCamera" type="Camera2D" parent="Game"]
 limit_left = 0
