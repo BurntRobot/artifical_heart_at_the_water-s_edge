@@ -310,8 +310,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 930
 limit_bottom = 670
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 editor_draw_limits = true
 script = ExtResource("4_aqk2v")
 
