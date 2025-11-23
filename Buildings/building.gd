@@ -65,17 +65,24 @@ func _physics_process(_delta: float) -> void:
 		health_label.text = str(current_health)
 		health_bar.max_value = health
 		if current_health <= 0:
-			queue_free()
-			# destruction animation
+			_destroy_building()
+
+func _destroy_building():
+	queue_free()
+	# destruction animation
 
 func you_cant_build():
-	return CityResources.money - building_cost < 0 or CityResources.water < water_in_day or something_placed_already()
-
-func something_placed_already():
+	return _no_money_for_build() or _no_water_for_building() or _something_placed_already()
+func _no_money_for_build():
+	return CityResources.money - building_cost < 0
+func _no_water_for_building():
+	return CityResources.water < water_in_day
+func _something_placed_already():
 	for _some_area in base_area.get_overlapping_areas():
 		if _some_area.name == "BaseArea" and _some_area != base_area:
 			return true
 	return false
+
 
 func snap_iso(pos: Vector2, tile_size_var: Vector2) -> Vector2:
 	var half_tile_size: Vector2 = tile_size_var * 0.5

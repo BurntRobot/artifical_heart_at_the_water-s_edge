@@ -496,6 +496,7 @@ autostart = true
 script = ExtResource("6_dwbse")
 
 [connection signal="_on_kafe_click" from="Game/Map" to="." method="_on_map__on_kafe_click"]
+[connection signal="game_over" from="Game/Map" to="." method="_on_map_game_over"]
 [connection signal="kafe_built" from="Game/Map" to="." method="_on_map_kafe_built"]
 [connection signal="town_hall_built" from="Game/Map" to="." method="_on_map_town_hall_built"]
 [connection signal="water_down_signal" from="Game/Map" to="GUI/InfoLabel" method="_on_map_water_down_signal"]

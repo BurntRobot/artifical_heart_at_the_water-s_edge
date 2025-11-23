@@ -10,6 +10,7 @@ signal _on_kafe_click
 signal town_hall_built
 signal kafe_built
 signal water_down_signal
+signal game_over
 
 
 func _ready() -> void:
@@ -72,6 +73,7 @@ func _on_test_build_pressed() -> void:
 	var town_hall = buildings_scenes[0].instantiate()
 	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
 	town_hall.built.connect(town_hall_built.emit)
+	town_hall.destroyed.connect(game_over.emit)
 	add_child(town_hall)
 
 func _on_test_build_2_pressed() -> void:
