@@ -6,7 +6,7 @@ var LEFT_MOUSE_BORDER
 var RIGHT_MOUSE_BORDER
 var UP_MOUSE_BORDER
 var DOWN_MOUSE_BORDER
-var border_width: int = 10
+var border_width: int = 30
 
 var LEFT_BORDER
 var RIGHT_BORDER

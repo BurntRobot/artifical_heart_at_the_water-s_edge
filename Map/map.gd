@@ -70,6 +70,7 @@ func deactivate_kafe():
 			child.deactivate_for_a_month()
 
 func _on_test_build_pressed() -> void:
+	_delete_not_build()
 	var town_hall = buildings_scenes[0].instantiate()
 	town_hall._on_check_free_ground.connect(is_tiles_are_free_ground)
 	town_hall.built.connect(town_hall_built.emit)
@@ -77,6 +78,7 @@ func _on_test_build_pressed() -> void:
 	add_child(town_hall)
 
 func _on_test_build_2_pressed() -> void:
+	_delete_not_build()
 	var kafe = buildings_scenes[1].instantiate()
 	kafe._on_check_free_ground.connect(is_tiles_are_free_ground)
 	kafe._on_click.connect(_kafe_is_clicked)
@@ -84,22 +86,27 @@ func _on_test_build_2_pressed() -> void:
 	add_child(kafe)
 
 func _on_test_build_4_pressed() -> void:
+	_delete_not_build()
 	var wall = buildings_scenes[2].instantiate()
 	add_child(wall)
 
 func _on_test_build_5_pressed() -> void:
+	_delete_not_build()
 	var house = buildings_scenes[4].instantiate()
 	add_child(house)
 
 func _on_test_build_6_pressed() -> void:
+	_delete_not_build()
 	var repair_station = buildings_scenes[5].instantiate()
 	add_child(repair_station)
 
 func _on_test_build_7_pressed() -> void:
+	_delete_not_build()
 	var pomp = buildings_scenes[6].instantiate()
 	add_child(pomp)
 
 func _on_test_build_8_pressed() -> void:
+	_delete_not_build()
 	var mine = buildings_scenes[3].instantiate()
 	add_child(mine)
 
@@ -111,3 +118,8 @@ func _on_day_timer_timeout() -> void:
 			water_down = true
 	if water_down:
 		water_down_signal.emit()
+
+func _delete_not_build():
+	for child in get_children():
+		if child is Building and not child.is_built:
+			child.queue_free()

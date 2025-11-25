@@ -295,18 +295,22 @@ editor_draw_limits = true
 script = ExtResource("4_aqk2v")
 
 [node name="LeftLine2D" type="Line2D" parent="Game/CameraPivot"]
+visible = false
 points = PackedVector2Array(0, 0, 0, 675)
 default_color = Color(0.31764707, 1, 0.31764707, 1)
 
 [node name="RightLine2D" type="Line2D" parent="Game/CameraPivot"]
+visible = false
 points = PackedVector2Array(0, 0, 0, 675)
 default_color = Color(0.65254897, 0, 0.23094627, 1)
 
 [node name="UpLine2D" type="Line2D" parent="Game/CameraPivot"]
+visible = false
 points = PackedVector2Array(0, 0, 930, 0)
 default_color = Color(0.5686275, 0, 0.79607844, 1)
 
 [node name="DownLine2D" type="Line2D" parent="Game/CameraPivot"]
+visible = false
 points = PackedVector2Array(0, 0, 930, 0)
 default_color = Color(1.92523e-07, 0.5208218, 0.62432575, 1)
 
@@ -323,7 +327,8 @@ anchor_bottom = 1.0
 offset_top = -48.0
 offset_right = 198.0
 grow_vertical = 0
-columns = 3
+mouse_filter = 2
+columns = 2
 
 [node name="test_build" type="Button" parent="GUI/VBoxContainer"]
 layout_mode = 2
@@ -375,6 +380,7 @@ text = "Build mine"
 alignment = 0
 
 [node name="test_build3" type="Button" parent="GUI/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
