@@ -23,16 +23,26 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_set_borders()
 	if Input.is_action_pressed("left") and position.x > LEFT_BORDER:
-		position += Vector2.LEFT * camera_speed * delta
+		_move_camera(Vector2.LEFT, delta)
 	if Input.is_action_pressed("right") and position.x < RIGHT_BORDER:
-		position += Vector2.RIGHT * camera_speed * delta
+		_move_camera(Vector2.RIGHT, delta)
 	if Input.is_action_pressed("up") and position.y > UP_BORDER:
-		position += Vector2.UP * camera_speed * delta
+		_move_camera(Vector2.UP, delta)
 	if Input.is_action_pressed("down") and position.y < DOWN_BORDER:
-		position += Vector2.DOWN * camera_speed * delta
+		_move_camera(Vector2.DOWN, delta)
+	
+	var mouse_pos = get_local_mouse_position()
+	if mouse_pos.x < LEFT_MOUSE_BORDER and position.x > LEFT_BORDER:
+		_move_camera(Vector2.LEFT, delta)
+	elif mouse_pos.x > RIGHT_MOUSE_BORDER and position.x < RIGHT_BORDER:
+		_move_camera(Vector2.RIGHT, delta)
+	if mouse_pos.y < UP_MOUSE_BORDER and position.y > UP_BORDER:
+		_move_camera(Vector2.UP, delta)
+	elif mouse_pos.y > DOWN_MOUSE_BORDER and position.y < DOWN_BORDER:
+		_move_camera(Vector2.DOWN, delta)
 
-func _input(_event: InputEvent) -> void:
-	pass
+func _move_camera(direction: Vector2, delta: float):
+	position += direction * camera_speed * delta
 
 func _set_borders():
 	var half_screen_x = get_viewport_rect().size.x / 2
