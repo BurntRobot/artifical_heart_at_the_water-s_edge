@@ -294,6 +294,22 @@ limit_bottom = 670
 editor_draw_limits = true
 script = ExtResource("4_aqk2v")
 
+[node name="LeftLine2D" type="Line2D" parent="Game/CameraPivot"]
+points = PackedVector2Array(0, 0, 0, 675)
+default_color = Color(0.31764707, 1, 0.31764707, 1)
+
+[node name="RightLine2D" type="Line2D" parent="Game/CameraPivot"]
+points = PackedVector2Array(0, 0, 0, 675)
+default_color = Color(0.65254897, 0, 0.23094627, 1)
+
+[node name="UpLine2D" type="Line2D" parent="Game/CameraPivot"]
+points = PackedVector2Array(0, 0, 930, 0)
+default_color = Color(0.5686275, 0, 0.79607844, 1)
+
+[node name="DownLine2D" type="Line2D" parent="Game/CameraPivot"]
+points = PackedVector2Array(0, 0, 930, 0)
+default_color = Color(1.92523e-07, 0.5208218, 0.62432575, 1)
+
 [node name="Wave" parent="Game" instance=ExtResource("12_ikiii")]
 position = Vector2(315, 314)
 
