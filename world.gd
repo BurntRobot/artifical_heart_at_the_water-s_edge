@@ -14,7 +14,7 @@ func _on_kafe_menu__on_choise() -> void:
 
 func _process(_delta: float) -> void:
 	if CityResources.citizens >= 120 and CityResources.money >= 1500:
-		get_tree().change_scene_to_file("res://Titles/WinScreen.tscn")
+		get_tree().change_scene_to_file("res://Screens/WinScreen.tscn")
 
 func _on_map_kafe_built() -> void:
 	$GUI/VBoxContainer/test_build2.hide()
@@ -23,4 +23,4 @@ func _on_map_town_hall_built() -> void:
 	$GUI/VBoxContainer/test_build.hide()
 
 func _on_map_game_over() -> void:
-	get_tree().change_scene_to_file("res://Titles/GameOver.tscn")
+	get_tree().change_scene_to_file("res://Screens/GameOver.tscn")

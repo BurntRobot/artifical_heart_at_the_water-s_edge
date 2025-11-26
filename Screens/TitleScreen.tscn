@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb8jqfraqo72m"]
+
+[ext_resource type="Script" uid="uid://d4dohuttpwdp3" path="res://Screens/button.gd" id="1_7koxw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6eglw"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0.15533376, 0.31886634, 0.3935441, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_odtcj"]
+font_size = 19
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30535534, 0.46811044, 0.44624555, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -15.5
+offset_right = 20.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_6eglw")
+text = "Play new game"
+script = ExtResource("1_7koxw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Artifical Heart at the Water's Edge"
+label_settings = SubResource("LabelSettings_odtcj")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
