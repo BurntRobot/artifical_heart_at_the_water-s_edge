@@ -692,10 +692,12 @@ layout_mode = 2
 text = "Choose a date for the month"
 
 [node name="Button" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
+visible = false
 layout_mode = 2
 text = "Conselour"
 
 [node name="Button2" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
+visible = false
 layout_mode = 2
 text = "The Main Worker"
 
