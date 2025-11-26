@@ -21,12 +21,13 @@
 [ext_resource type="Script" uid="uid://bupbvvcs0bj30" path="res://GUI/info_label.gd" id="12_udxuc"]
 [ext_resource type="Script" uid="uid://cxo8i0g8fdb6h" path="res://Player/camera_pivot.gd" id="13_26xuy"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2u3nc"]
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wse8f"]
 bg_color = Color(0.48570347, 0.48570353, 0.4857034, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2u3nc"]
+font_size = 12
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node"]
 process_mode = 3
@@ -282,6 +283,10 @@ position = Vector2(1605, 459)
 [node name="Marker2D32" type="Marker2D" parent="Game/Map/WaveSpawner"]
 position = Vector2(1635, 441)
 
+[node name="House" parent="Game/Map" instance=ExtResource("7_2u3nc")]
+position = Vector2(225, 171)
+is_built = true
+
 [node name="CameraPivot" type="Node2D" parent="Game"]
 script = ExtResource("13_26xuy")
 
@@ -315,114 +320,6 @@ default_color = Color(1.92523e-07, 0.5208218, 0.62432575, 1)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 process_mode = 3
-
-[node name="VBoxContainer" type="GridContainer" parent="GUI"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -48.0
-offset_right = 198.0
-grow_vertical = 0
-mouse_filter = 2
-columns = 2
-
-[node name="test_build" type="Button" parent="GUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Build townhall"
-alignment = 0
-
-[node name="test_build2" type="Button" parent="GUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Build kafe"
-alignment = 0
-
-[node name="test_build4" type="Button" parent="GUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Build wall"
-alignment = 0
-
-[node name="test_build5" type="Button" parent="GUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Build house"
-alignment = 0
-
-[node name="test_build6" type="Button" parent="GUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Build repair"
-alignment = 0
-
-[node name="test_build7" type="Button" parent="GUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Build pomp"
-alignment = 0
-
-[node name="test_build8" type="Button" parent="GUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Build mine"
-alignment = 0
-
-[node name="test_build3" type="Button" parent="GUI/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 10
-text = "Wave"
-alignment = 0
-
-[node name="InfoLabel" type="RichTextLabel" parent="GUI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -169.0
-offset_top = -74.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/outline_size = 5
-horizontal_alignment = 2
-script = ExtResource("12_udxuc")
-
-[node name="MoneyLabel" type="Label" parent="GUI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-label_settings = SubResource("LabelSettings_2u3nc")
-script = ExtResource("5_036b0")
-
-[node name="DateLabel" type="Label" parent="GUI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-label_settings = SubResource("LabelSettings_2u3nc")
-script = ExtResource("6_pkg7o")
-
-[node name="ResourcesLabel" type="Label" parent="GUI"]
-offset_right = 40.0
-offset_bottom = 23.0
-label_settings = SubResource("LabelSettings_2u3nc")
-script = ExtResource("7_gbfbk")
 
 [node name="KafeMenu" type="Control" parent="GUI"]
 visible = false
@@ -487,6 +384,123 @@ text = "The Main Worker"
 layout_mode = 2
 text = "Engineer"
 
+[node name="M" type="MarginContainer" parent="GUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="V" type="VBoxContainer" parent="GUI/M"]
+layout_mode = 2
+
+[node name="H" type="HBoxContainer" parent="GUI/M/V"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="GUI/M/V/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_2u3nc")
+script = ExtResource("5_036b0")
+
+[node name="DateLabel" type="Label" parent="GUI/M/V/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_2u3nc")
+horizontal_alignment = 1
+script = ExtResource("6_pkg7o")
+
+[node name="ResourcesLabel" type="Label" parent="GUI/M/V/H"]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_2u3nc")
+horizontal_alignment = 2
+script = ExtResource("7_gbfbk")
+
+[node name="Control" type="Control" parent="GUI/M/V"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="H2" type="HBoxContainer" parent="GUI/M/V"]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="VBoxContainer" type="GridContainer" parent="GUI/M/V/H2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+columns = 2
+
+[node name="test_build" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Build townhall"
+alignment = 0
+
+[node name="test_build2" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Build kafe"
+alignment = 0
+
+[node name="test_build4" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Build wall"
+alignment = 0
+
+[node name="test_build5" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Build house"
+alignment = 0
+
+[node name="test_build6" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Build repair"
+alignment = 0
+
+[node name="test_build7" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Build pomp"
+alignment = 0
+
+[node name="test_build8" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Build mine"
+alignment = 0
+
+[node name="test_build3" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 10
+text = "Wave"
+alignment = 0
+
+[node name="InfoLabel" type="RichTextLabel" parent="GUI/M/V/H2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 12
+horizontal_alignment = 2
+script = ExtResource("12_udxuc")
+
 [node name="DayTimer" type="Timer" parent="."]
 process_mode = 1
 autostart = true
@@ -496,20 +510,20 @@ script = ExtResource("6_dwbse")
 [connection signal="game_over" from="Game/Map" to="." method="_on_map_game_over"]
 [connection signal="kafe_built" from="Game/Map" to="." method="_on_map_kafe_built"]
 [connection signal="town_hall_built" from="Game/Map" to="." method="_on_map_town_hall_built"]
-[connection signal="water_down_signal" from="Game/Map" to="GUI/InfoLabel" method="_on_map_water_down_signal"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build4" to="Game/Map" method="_on_test_build_4_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build5" to="Game/Map" method="_on_test_build_5_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build6" to="Game/Map" method="_on_test_build_6_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build7" to="Game/Map" method="_on_test_build_7_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build8" to="Game/Map" method="_on_test_build_8_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/test_build3" to="Game/Map" method="_on_test_build_3_pressed"]
+[connection signal="water_down_signal" from="Game/Map" to="GUI/M/V/H2/InfoLabel" method="_on_map_water_down_signal"]
 [connection signal="_on_choise" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_choise"]
 [connection signal="_on_walls_reinforced" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_walls_reinforced"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/Button4" to="GUI/KafeMenu" method="_on_button_4_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button" to="GUI/KafeMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button2" to="GUI/KafeMenu" method="_on_button_2_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build4" to="Game/Map" method="_on_test_build_4_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build5" to="Game/Map" method="_on_test_build_5_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build6" to="Game/Map" method="_on_test_build_6_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build7" to="Game/Map" method="_on_test_build_7_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build8" to="Game/Map" method="_on_test_build_8_pressed"]
+[connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build3" to="Game/Map" method="_on_test_build_3_pressed"]
 [connection signal="timeout" from="DayTimer" to="Game/Map" method="_on_day_timer_timeout"]
 [connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]

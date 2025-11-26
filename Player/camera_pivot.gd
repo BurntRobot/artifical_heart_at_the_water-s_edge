@@ -6,13 +6,13 @@ var LEFT_MOUSE_BORDER
 var RIGHT_MOUSE_BORDER
 var UP_MOUSE_BORDER
 var DOWN_MOUSE_BORDER
-var border_width: int = 30
+var border_width: int = 10
 
 var LEFT_BORDER
 var RIGHT_BORDER
 var UP_BORDER
 var DOWN_BORDER
-var camera_speed: int = 150
+var camera_speed: int = 100
 
 
 
@@ -32,14 +32,23 @@ func _process(delta: float) -> void:
 		_move_camera(Vector2.DOWN, delta)
 	
 	var mouse_pos = get_local_mouse_position()
-	if mouse_pos.x < LEFT_MOUSE_BORDER and position.x > LEFT_BORDER:
-		_move_camera(Vector2.LEFT, delta)
-	elif mouse_pos.x > RIGHT_MOUSE_BORDER and position.x < RIGHT_BORDER:
-		_move_camera(Vector2.RIGHT, delta)
-	if mouse_pos.y < UP_MOUSE_BORDER and position.y > UP_BORDER:
-		_move_camera(Vector2.UP, delta)
-	elif mouse_pos.y > DOWN_MOUSE_BORDER and position.y < DOWN_BORDER:
-		_move_camera(Vector2.DOWN, delta)
+	
+	if _is_mouse_on_screen(mouse_pos):
+		if mouse_pos.x < LEFT_MOUSE_BORDER and position.x > LEFT_BORDER:
+			_move_camera(Vector2.LEFT, delta)
+		elif mouse_pos.x > RIGHT_MOUSE_BORDER and position.x < RIGHT_BORDER:
+			_move_camera(Vector2.RIGHT, delta)
+		if mouse_pos.y < UP_MOUSE_BORDER and position.y > UP_BORDER:
+			_move_camera(Vector2.UP, delta)
+		elif mouse_pos.y > DOWN_MOUSE_BORDER and position.y < DOWN_BORDER:
+			_move_camera(Vector2.DOWN, delta)
+
+func _is_mouse_on_screen(mouse_pos):
+	var half_screen_x = get_viewport_rect().size.x / 2
+	var half_screen_y = get_viewport_rect().size.y / 2
+	var x_res = mouse_pos.x > -half_screen_x and mouse_pos.x < half_screen_x
+	var y_res = mouse_pos.y > -half_screen_y and mouse_pos.y < half_screen_y
+	return x_res and y_res
 
 func _move_camera(direction: Vector2, delta: float):
 	position += direction * camera_speed * delta
