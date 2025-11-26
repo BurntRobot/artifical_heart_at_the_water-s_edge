@@ -17,25 +17,6 @@ var last_wave_date = "00.00.0000"
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _physics_process(_delta: float) -> void:
-	var date_str = _format_date(CityResources.day, CityResources.month, CityResources.year)
-	spawn_wave_at("20.04.4038", date_str, 1.0)
-	spawn_wave_at("27.05.4038", date_str, 1.3)
-	spawn_wave_at("12.07.4038", date_str, 1.0)
-	spawn_wave_at("23.08.4038", date_str, 1.7)
-	spawn_wave_at("2.10.4038", date_str, 2.0)
-	spawn_wave_at("10.11.4038", date_str, 1.7)
-	spawn_wave_at("30.12.4038", date_str, 3.5)
-
-
-func spawn_wave_at(date: String, current_date: String, strength: float):
-	if current_date == date and current_date != last_wave_date:
-		wave_spawner.start_wave(strength)
-		last_wave_date = current_date
-
-func _format_date(day, month, year):
-	return "%02d.%02d.%d" % [day, month, year]
-
 func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 	for child in get_children():
 		if child is Building and not child.is_built:
@@ -137,6 +118,30 @@ func _on_day_timer_timeout() -> void:
 			water_down = true
 	if water_down:
 		water_down_signal.emit()
+	
+	var date_str = _format_date(CityResources.day, CityResources.month, CityResources.year)
+	$"../../GUI/M/V/Control/WaveProgressBar".start_progress_countdown("20.03.4038", date_str)
+	spawn_wave_at("20.04.4038", date_str, 1.0)
+	$"../../GUI/M/V/Control/WaveProgressBar".start_progress_countdown("27.05.4038", date_str)
+	spawn_wave_at("27.06.4038", date_str, 1.3)
+	$"../../GUI/M/V/Control/WaveProgressBar".start_progress_countdown("12.07.4038", date_str)
+	spawn_wave_at("12.08.4038", date_str, 1.0)
+	$"../../GUI/M/V/Control/WaveProgressBar".start_progress_countdown("30.09.4038", date_str)
+	spawn_wave_at("30.10.4038", date_str, 1.7)
+	$"../../GUI/M/V/Control/WaveProgressBar".start_progress_countdown("1.12.4038", date_str)
+	spawn_wave_at("01.01.4039", date_str, 2.0)
+	$"../../GUI/M/V/Control/WaveProgressBar".start_progress_countdown("10.03.4039", date_str)
+	spawn_wave_at("10.04.4039", date_str, 1.7)
+	$"../../GUI/M/V/Control/WaveProgressBar".start_progress_countdown("30.06.4039", date_str)
+	spawn_wave_at("30.07.4039", date_str, 3.5)
+
+func spawn_wave_at(date: String, current_date: String, strength: float):
+	if current_date == date and current_date != last_wave_date:
+		wave_spawner.start_wave(strength)
+		last_wave_date = current_date
+
+func _format_date(day, month, year):
+	return "%02d.%02d.%d" % [day, month, year]
 
 func _delete_not_build():
 	for child in get_children():
