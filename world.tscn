@@ -157,6 +157,15 @@ tile_set = ExtResource("1_fj7yv")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Map/Water"]
 polygon = PackedVector2Array(128, 709, 100, 692, 145, 662, 133, 654, 160, 636, 149, 628, 173, 611, 162, 602, 192, 584, 177, 574, 203, 556, 192, 546, 219, 530, 206, 523, 220, 512, 211, 505, 222, 493, 210, 488, 218, 473, 210, 466, 215, 451, 197, 442, 196, 399, 181, 394, 182, 339, 207, 322, 196, 315, 268, 268, 253, 261, 327, 216, 313, 205, 386, 162, 374, 152, 393, 158, 404, 153, 464, 187, 479, 178, 525, 206, 539, 198, 586, 223, 697, 153, 688, 145, 766, 96, 780, 104, 811, 89, 827, 98, 838, 90, 902, 91, 911, 81, 945, 82, 975, 83, 990, 71, 1007, 79, 1055, 250, 1047, 714)
 
+[node name="Water2" type="Area2D" parent="Game/Map"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Map/Water2"]
+polygon = PackedVector2Array(960, 27, 0, 27, 0, 738, -255, 720, -165, -261, 1050, -198)
+
+[node name="CollisionPolygon2D2" type="Polygon2D" parent="Game/Map/Water2"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(960, 27, 0, 27, 0, 738, -255, 720, -165, -261, 1050, -198)
+
 [node name="WaveSpawner" parent="Game/Map" instance=ExtResource("11_cbp6q")]
 wave_scene = ExtResource("12_ikiii")
 
@@ -389,8 +398,8 @@ position = Vector2(1635, 441)
 script = ExtResource("13_26xuy")
 
 [node name="PlayerCamera" type="Camera2D" parent="Game/CameraPivot"]
-limit_left = 0
-limit_top = 0
+limit_left = -50
+limit_top = -50
 limit_right = 930
 limit_bottom = 670
 editor_draw_limits = true
@@ -479,7 +488,19 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 50
 
-[node name="WaveProgressBar" type="ProgressBar" parent="GUI/M/V/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/M/V/Control"]
+layout_mode = 2
+
+[node name="InfoLabel" type="RichTextLabel" parent="GUI/M/V/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 12
+scroll_active = false
+script = ExtResource("12_udxuc")
+
+[node name="WaveProgressBar" type="ProgressBar" parent="GUI/M/V/Control/HBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
@@ -493,7 +514,7 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("18_bc84e")
 
-[node name="Label" type="Label" parent="GUI/M/V/Control/WaveProgressBar"]
+[node name="Label" type="Label" parent="GUI/M/V/Control/HBoxContainer/WaveProgressBar"]
 layout_mode = 0
 offset_left = -12.0
 offset_top = 90.0
@@ -618,14 +639,6 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Wave"
 alignment = 0
-
-[node name="InfoLabel" type="RichTextLabel" parent="GUI/M/V/H2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 12
-horizontal_alignment = 2
-script = ExtResource("12_udxuc")
 
 [node name="KafeMenu" type="Control" parent="GUI"]
 visible = false
@@ -766,7 +779,7 @@ script = ExtResource("6_dwbse")
 [connection signal="game_over" from="Game/Map" to="." method="_on_map_game_over"]
 [connection signal="kafe_built" from="Game/Map" to="." method="_on_map_kafe_built"]
 [connection signal="town_hall_built" from="Game/Map" to="." method="_on_map_town_hall_built"]
-[connection signal="water_down_signal" from="Game/Map" to="GUI/M/V/H2/InfoLabel" method="_on_map_water_down_signal"]
+[connection signal="water_down_signal" from="Game/Map" to="GUI/M/V/Control/HBoxContainer/InfoLabel" method="_on_map_water_down_signal"]
 [connection signal="pressed" from="GUI/M/V/Button" to="GUI/Help" method="_on_button_pressed"]
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
@@ -785,4 +798,4 @@ script = ExtResource("6_dwbse")
 [connection signal="pressed" from="GUI/Help/MarginContainer/PanelContainer/VBoxContainer/Button2" to="GUI/Help" method="_on_button_2_pressed"]
 [connection signal="timeout" from="DayTimer" to="Game/Map" method="_on_day_timer_timeout"]
 [connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]
-[connection signal="timeout" from="DayTimer" to="GUI/M/V/Control/WaveProgressBar" method="_on_day_timer_timeout"]
+[connection signal="timeout" from="DayTimer" to="GUI/M/V/Control/HBoxContainer/WaveProgressBar" method="_on_day_timer_timeout"]

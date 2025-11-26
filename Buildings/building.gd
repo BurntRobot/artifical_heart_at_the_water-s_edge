@@ -87,6 +87,8 @@ func _something_placed_already():
 			return true
 		if _some_area.name == "Water" and _some_area != base_area:
 			return true
+		if _some_area.name == "Water2" and _some_area != base_area:
+			return true
 	return false
 
 
