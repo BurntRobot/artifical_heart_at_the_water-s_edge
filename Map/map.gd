@@ -12,14 +12,29 @@ signal kafe_built
 signal water_down_signal
 signal game_over
 
+var last_wave_date = "00.00.0000"
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _physics_process(_delta: float) -> void:
-	
+	var date_str = _format_date(CityResources.day, CityResources.month, CityResources.year)
+	spawn_wave_at("20.04.4038", date_str, 1.0)
+	spawn_wave_at("27.05.4038", date_str, 1.3)
+	spawn_wave_at("12.07.4038", date_str, 1.0)
+	spawn_wave_at("23.08.4038", date_str, 1.7)
+	spawn_wave_at("2.10.4038", date_str, 2.0)
+	spawn_wave_at("10.11.4038", date_str, 1.7)
+	spawn_wave_at("30.12.4038", date_str, 3.5)
 
-#wave_spawner.start_wave(1.0)
+
+func spawn_wave_at(date: String, current_date: String, strength: float):
+	if current_date == date and current_date != last_wave_date:
+		wave_spawner.start_wave(strength)
+		last_wave_date = current_date
+
+func _format_date(day, month, year):
+	return "%02d.%02d.%d" % [day, month, year]
 
 func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 	for child in get_children():

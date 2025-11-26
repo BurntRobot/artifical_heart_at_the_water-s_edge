@@ -85,6 +85,8 @@ func _something_placed_already():
 	for _some_area in base_area.get_overlapping_areas():
 		if _some_area.name == "BaseArea" and _some_area != base_area:
 			return true
+		if _some_area.name == "Water" and _some_area != base_area:
+			return true
 	return false
 
 

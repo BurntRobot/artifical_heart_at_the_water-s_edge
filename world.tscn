@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=30 format=4 uid="uid://cxnlncaghbgq2"]
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
@@ -20,9 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://ck63nsp31aeq5" path="res://Waves/wave.tscn" id="12_ikiii"]
 [ext_resource type="Script" uid="uid://bupbvvcs0bj30" path="res://GUI/info_label.gd" id="12_udxuc"]
 [ext_resource type="Script" uid="uid://cxo8i0g8fdb6h" path="res://Player/camera_pivot.gd" id="13_26xuy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wse8f"]
-bg_color = Color(0.48570347, 0.48570353, 0.4857034, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26xuy"]
 content_margin_left = 15.0
@@ -46,6 +43,12 @@ shadow_offset = Vector2(1, 1)
 font_size = 12
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjb0r"]
+bg_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc2jv"]
+bg_color = Color(0.12037847, 0.6374276, 0.9303101, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bc84e"]
 content_margin_left = 5.0
@@ -99,6 +102,9 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26xuy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wse8f"]
+bg_color = Color(0.48570347, 0.48570353, 0.4857034, 1)
 
 [node name="World" type="Node"]
 process_mode = 3
@@ -388,69 +394,6 @@ default_color = Color(1.92523e-07, 0.5208218, 0.62432575, 1)
 [node name="GUI" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="KafeMenu" type="Control" parent="GUI"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("10_ic0uy")
-
-[node name="ColorRect" type="ColorRect" parent="GUI/KafeMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.64705884)
-
-[node name="PanelContainer" type="PanelContainer" parent="GUI/KafeMenu"]
-layout_mode = 0
-offset_left = 119.0
-offset_top = 74.0
-offset_right = 280.0
-offset_bottom = 225.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wse8f")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Button4" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "back"
-
-[node name="M" type="MarginContainer" parent="GUI/KafeMenu/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="V" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
-layout_mode = 2
-text = "Choose a date for the month"
-
-[node name="Button" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
-layout_mode = 2
-text = "Conselour"
-
-[node name="Button2" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
-layout_mode = 2
-text = "The Main Worker"
-
-[node name="Button3" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
-layout_mode = 2
-text = "Engineer"
-
 [node name="M" type="MarginContainer" parent="GUI"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -493,10 +436,24 @@ label_settings = SubResource("LabelSettings_2u3nc")
 horizontal_alignment = 2
 script = ExtResource("7_gbfbk")
 
-[node name="Control" type="Control" parent="GUI/M/V"]
+[node name="Control" type="MarginContainer" parent="GUI/M/V"]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 1
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 50
+
+[node name="ProgressBar" type="ProgressBar" parent="GUI/M/V/Control"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_wjb0r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mc2jv")
+max_value = 30.0
+step = 1.0
+fill_mode = 3
+show_percentage = false
 
 [node name="H2" type="HBoxContainer" parent="GUI/M/V"]
 layout_mode = 2
@@ -615,6 +572,69 @@ theme_override_font_sizes/normal_font_size = 12
 horizontal_alignment = 2
 script = ExtResource("12_udxuc")
 
+[node name="KafeMenu" type="Control" parent="GUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_ic0uy")
+
+[node name="ColorRect" type="ColorRect" parent="GUI/KafeMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.64705884)
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI/KafeMenu"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 74.0
+offset_right = 280.0
+offset_bottom = 225.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wse8f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button4" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "back"
+
+[node name="M" type="MarginContainer" parent="GUI/KafeMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="V" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
+layout_mode = 2
+text = "Choose a date for the month"
+
+[node name="Button" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
+layout_mode = 2
+text = "Conselour"
+
+[node name="Button2" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
+layout_mode = 2
+text = "The Main Worker"
+
+[node name="Button3" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
+layout_mode = 2
+text = "Engineer"
+
 [node name="DayTimer" type="Timer" parent="."]
 process_mode = 1
 autostart = true
@@ -625,12 +645,6 @@ script = ExtResource("6_dwbse")
 [connection signal="kafe_built" from="Game/Map" to="." method="_on_map_kafe_built"]
 [connection signal="town_hall_built" from="Game/Map" to="." method="_on_map_town_hall_built"]
 [connection signal="water_down_signal" from="Game/Map" to="GUI/M/V/H2/InfoLabel" method="_on_map_water_down_signal"]
-[connection signal="_on_choise" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_choise"]
-[connection signal="_on_walls_reinforced" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_walls_reinforced"]
-[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/Button4" to="GUI/KafeMenu" method="_on_button_4_pressed"]
-[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button" to="GUI/KafeMenu" method="_on_button_pressed"]
-[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button2" to="GUI/KafeMenu" method="_on_button_2_pressed"]
-[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build" to="Game/Map" method="_on_test_build_pressed"]
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build2" to="Game/Map" method="_on_test_build_2_pressed"]
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build4" to="Game/Map" method="_on_test_build_4_pressed"]
@@ -639,5 +653,11 @@ script = ExtResource("6_dwbse")
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build7" to="Game/Map" method="_on_test_build_7_pressed"]
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build8" to="Game/Map" method="_on_test_build_8_pressed"]
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build3" to="Game/Map" method="_on_test_build_3_pressed"]
+[connection signal="_on_choise" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_choise"]
+[connection signal="_on_walls_reinforced" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_walls_reinforced"]
+[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/Button4" to="GUI/KafeMenu" method="_on_button_4_pressed"]
+[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button" to="GUI/KafeMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button2" to="GUI/KafeMenu" method="_on_button_2_pressed"]
+[connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]
 [connection signal="timeout" from="DayTimer" to="Game/Map" method="_on_day_timer_timeout"]
 [connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]
