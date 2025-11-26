@@ -22,3 +22,11 @@ func next_month():
 
 func next_year():
 	_on_next_year.emit()
+
+func restart_game():
+	money = 1000
+	water = 100
+	citizens = 0
+	day = 12
+	month = 3
+	year = 4038

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage: float = 300.0
+@export var damage: float = 150.0
 @export var weakening: float = 50.0
 @onready var timer: Timer = $Timer
 

@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://l7h1igtwoss6"]
+[gd_scene load_steps=3 format=3 uid="uid://n6eobyy3kntt"]
 
-[ext_resource type="Script" uid="uid://d4dohuttpwdp3" path="res://Titles/button.gd" id="1_oykyo"]
+[ext_resource type="Script" uid="uid://d4dohuttpwdp3" path="res://Titles/button.gd" id="1_06m5n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_odtcj"]
 font_size = 24
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="GameOver" type="Control"]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,12 +40,12 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game Over!"
+text = "You won!"
 label_settings = SubResource("LabelSettings_odtcj")
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Restart"
-script = ExtResource("1_oykyo")
+script = ExtResource("1_06m5n")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
