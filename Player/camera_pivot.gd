@@ -31,6 +31,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("down") and position.y < DOWN_BORDER:
 		_move_camera(Vector2.DOWN, delta)
 	
+	# commented cause annoying and buggy
+	"""
 	var mouse_pos = get_local_mouse_position()
 	
 	if _is_mouse_on_screen(mouse_pos):
@@ -42,6 +44,7 @@ func _process(delta: float) -> void:
 			_move_camera(Vector2.UP, delta)
 		elif mouse_pos.y > DOWN_MOUSE_BORDER and position.y < DOWN_BORDER:
 			_move_camera(Vector2.DOWN, delta)
+	"""
 
 func _is_mouse_on_screen(mouse_pos):
 	var half_screen_x = get_viewport_rect().size.x / 2

@@ -180,6 +180,7 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 17.0
 size_flags_horizontal = 4

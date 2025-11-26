@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=28 format=4 uid="uid://cxnlncaghbgq2"]
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
@@ -24,10 +24,81 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wse8f"]
 bg_color = Color(0.48570347, 0.48570353, 0.4857034, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26xuy"]
+content_margin_left = 15.0
+content_margin_top = 0.0
+content_margin_right = 15.0
+content_margin_bottom = 5.0
+bg_color = Color(0.56566745, 0.38589782, 0.59551686, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 11.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_2u3nc"]
 font_size = 12
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bc84e"]
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.24135017, 0.46381903, 0.4594248, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wukud"]
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.49411863, 0.7756658, 0.7694732, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il2jm"]
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.4377639, 0.5536534, 0.440571, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26xuy"]
 
 [node name="World" type="Node"]
 process_mode = 3
@@ -283,10 +354,6 @@ position = Vector2(1605, 459)
 [node name="Marker2D32" type="Marker2D" parent="Game/Map/WaveSpawner"]
 position = Vector2(1635, 441)
 
-[node name="House" parent="Game/Map" instance=ExtResource("7_2u3nc")]
-position = Vector2(225, 171)
-is_built = true
-
 [node name="CameraPivot" type="Node2D" parent="Game"]
 script = ExtResource("13_26xuy")
 
@@ -398,25 +465,30 @@ theme_override_constants/margin_bottom = 5
 [node name="V" type="VBoxContainer" parent="GUI/M"]
 layout_mode = 2
 
-[node name="H" type="HBoxContainer" parent="GUI/M/V"]
+[node name="Panel" type="PanelContainer" parent="GUI/M/V"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_26xuy")
+
+[node name="H" type="HBoxContainer" parent="GUI/M/V/Panel"]
 layout_mode = 2
 
-[node name="MoneyLabel" type="Label" parent="GUI/M/V/H"]
+[node name="MoneyLabel" type="Label" parent="GUI/M/V/Panel/H"]
 layout_mode = 2
 size_flags_horizontal = 3
 label_settings = SubResource("LabelSettings_2u3nc")
 script = ExtResource("5_036b0")
 
-[node name="DateLabel" type="Label" parent="GUI/M/V/H"]
+[node name="DateLabel" type="Label" parent="GUI/M/V/Panel/H"]
 layout_mode = 2
 size_flags_horizontal = 3
 label_settings = SubResource("LabelSettings_2u3nc")
 horizontal_alignment = 1
 script = ExtResource("6_pkg7o")
 
-[node name="ResourcesLabel" type="Label" parent="GUI/M/V/H"]
+[node name="ResourcesLabel" type="Label" parent="GUI/M/V/Panel/H"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 label_settings = SubResource("LabelSettings_2u3nc")
 horizontal_alignment = 2
 script = ExtResource("7_gbfbk")
@@ -434,12 +506,19 @@ mouse_filter = 0
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-columns = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 2
+columns = 4
 
 [node name="test_build" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Build townhall"
 alignment = 0
 
@@ -447,6 +526,11 @@ alignment = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Build kafe"
 alignment = 0
 
@@ -454,6 +538,11 @@ alignment = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Build wall"
 alignment = 0
 
@@ -461,6 +550,11 @@ alignment = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Build house"
 alignment = 0
 
@@ -468,6 +562,11 @@ alignment = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Build repair"
 alignment = 0
 
@@ -475,6 +574,11 @@ alignment = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Build pomp"
 alignment = 0
 
@@ -482,6 +586,11 @@ alignment = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Build mine"
 alignment = 0
 
@@ -490,6 +599,11 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Wave"
 alignment = 0
 

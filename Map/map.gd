@@ -15,7 +15,11 @@ signal game_over
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	wave_spawner.start_wave(1.0)
+
+func _physics_process(_delta: float) -> void:
+	
+
+#wave_spawner.start_wave(1.0)
 
 func is_tiles_are_free_ground(tiles: Array[Vector2i]):
 	for child in get_children():

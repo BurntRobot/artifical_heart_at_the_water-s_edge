@@ -64,6 +64,10 @@ func _physics_process(_delta: float) -> void:
 		health_bar.value = current_health
 		health_label.text = str(current_health)
 		health_bar.max_value = health
+		if current_health < health:
+			health_bar.show()
+		else:
+			health_bar.hide()
 		if current_health <= 0:
 			_destroy_building()
 
@@ -142,9 +146,11 @@ func set_red_places(_red_tiles: Array[Vector2i]):
 
 func _on_area_2d_mouse_entered() -> void:
 	info_panel.show()
+	health_bar.show()
 
 func _on_area_2d_mouse_exited() -> void:
 	info_panel.hide()
+	health_bar.hide()
 
 func heal(ammount: int):
 	if current_health < health:
