@@ -101,12 +101,22 @@ corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjb0r"]
 bg_color = Color(0.15686275, 0.15686275, 0.15686275, 0.7058824)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc2jv"]
 bg_color = Color(0.12037847, 0.6374276, 0.9303101, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_wukud"]
 font_size = 10
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wse8f"]
 bg_color = Color(0.48570347, 0.48570353, 0.4857034, 1)
@@ -799,5 +809,5 @@ script = ExtResource("6_dwbse")
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button3" to="GUI/KafeMenu" method="_on_button_3_pressed"]
 [connection signal="pressed" from="GUI/Help/MarginContainer/PanelContainer/VBoxContainer/Button2" to="GUI/Help" method="_on_button_2_pressed"]
 [connection signal="timeout" from="DayTimer" to="Game/Map" method="_on_day_timer_timeout"]
-[connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]
 [connection signal="timeout" from="DayTimer" to="GUI/M/V/Control/HBoxContainer/WaveProgressBar" method="_on_day_timer_timeout"]
+[connection signal="timeout" from="DayTimer" to="DayTimer" method="_on_timeout"]
