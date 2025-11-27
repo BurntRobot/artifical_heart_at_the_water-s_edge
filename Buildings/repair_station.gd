@@ -23,3 +23,7 @@ func _next_day():
 				if building_area.get_parent().can_be_healed():
 					building_area.get_parent().heal(healing_ammount)
 					# play sound
+
+func _build():
+	super._build()
+	base_for_water.hide()

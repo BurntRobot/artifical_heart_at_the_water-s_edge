@@ -5,7 +5,7 @@ signal _on_next_month
 signal _on_next_year
 
 
-var money: int = 1000
+var money: int = 1200
 
 var water: int = 100
 var citizens: int = 0
@@ -24,7 +24,7 @@ func next_year():
 	_on_next_year.emit()
 
 func restart_game():
-	money = 1000
+	money = 1200
 	water = 100
 	citizens = 0
 	day = 12

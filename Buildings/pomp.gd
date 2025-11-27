@@ -20,3 +20,6 @@ func you_cant_build():
 		return true
 	else:
 		return true
+
+func _no_water_for_building():
+	return false
