@@ -11,6 +11,7 @@ font_size = 12
 script = ExtResource("2_bdm3m")
 water_in_day = 2
 building_cost = 200
+building_name = "Repair station"
 
 [node name="Base" parent="." index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAD//wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wEAAAACAAAAAAD/////AAACAAAAAAAAAAEAAAACAAAAAAAAAP//AAACAAAAAAD+////AAACAAAAAAD+/wEAAAACAAAAAAA=")

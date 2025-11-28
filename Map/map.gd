@@ -147,3 +147,15 @@ func _delete_not_build():
 	for child in get_children():
 		if child is Building and not child.is_built:
 			child.queue_free()
+
+func _on_kafe_menu__reinforce_houses() -> void:
+	for child in get_children():
+		if child is House and child.is_built:
+			child.health += 50
+			child.current_health += 50
+
+func _on_kafe_menu__reinforce_townhall() -> void:
+	for child in get_children():
+		if child is Townhall and child.is_built:
+			child.health += 50
+			child.current_health += 50

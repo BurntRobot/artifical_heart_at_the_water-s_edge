@@ -1,4 +1,5 @@
 extends Building
+class_name House
 
 
 func _rotate():

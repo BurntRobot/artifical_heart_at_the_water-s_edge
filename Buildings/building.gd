@@ -20,6 +20,8 @@ class_name Building
 @export var health: int = 250
 var current_health: int
 
+@export var building_name: String = "Building"
+
 var is_working = true
 
 var rotated: bool = false
@@ -39,7 +41,7 @@ func _ready() -> void:
 	health_bar.max_value = health
 	current_health = health
 	health_bar.value = current_health
-	label.text = self.name
+	label.text = self.building_name
 
 func _physics_process(_delta: float) -> void:
 	if not is_built:

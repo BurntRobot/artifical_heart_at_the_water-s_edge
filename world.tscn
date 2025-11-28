@@ -742,18 +742,16 @@ layout_mode = 2
 text = "Choose a date for the month"
 
 [node name="Button" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
-visible = false
 layout_mode = 2
-text = "Conselour"
+text = "Conselour. Reinforce townhall"
 
 [node name="Button2" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
-visible = false
 layout_mode = 2
-text = "The Main Worker"
+text = "Main from Houses. Reinforce houses"
 
 [node name="Button3" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
 layout_mode = 2
-text = "Engineer"
+text = "Engineer. Reinforce walls"
 
 [node name="Help" type="Control" parent="GUI"]
 visible = false
@@ -857,6 +855,8 @@ script = ExtResource("6_dwbse")
 [connection signal="pressed" from="GUI/M/V/H2/VBoxContainer/test_build3" to="Game/Map" method="_on_test_build_3_pressed"]
 [connection signal="_on_choise" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_choise"]
 [connection signal="_on_walls_reinforced" from="GUI/KafeMenu" to="." method="_on_kafe_menu__on_walls_reinforced"]
+[connection signal="_reinforce_houses" from="GUI/KafeMenu" to="Game/Map" method="_on_kafe_menu__reinforce_houses"]
+[connection signal="_reinforce_townhall" from="GUI/KafeMenu" to="Game/Map" method="_on_kafe_menu__reinforce_townhall"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/Button4" to="GUI/KafeMenu" method="_on_button_4_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button" to="GUI/KafeMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V/Button2" to="GUI/KafeMenu" method="_on_button_2_pressed"]

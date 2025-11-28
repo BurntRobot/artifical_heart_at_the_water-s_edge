@@ -12,6 +12,7 @@ script = ExtResource("2_diyid")
 water_in_day = 2
 building_cost = 100
 health = 50
+building_name = "House"
 
 [node name="Base" parent="." index="0"]
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 255, 255, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0)

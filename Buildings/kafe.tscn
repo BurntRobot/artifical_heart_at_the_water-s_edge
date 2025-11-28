@@ -12,6 +12,7 @@ script = ExtResource("2_0680k")
 water_in_day = 3
 building_cost = 300
 health = 150
+building_name = "Kafe"
 
 [node name="Base" parent="." index="0"]
 tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD//wEAAAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAACAAAAAAAAAP//AAACAAAAAAD/////AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAA=")
