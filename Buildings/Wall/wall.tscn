@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_cr1d3"]
 [ext_resource type="Script" uid="uid://b68rkufov2exd" path="res://Buildings/Wall/wall.gd" id="2_iky6s"]
-[ext_resource type="Texture2D" uid="uid://1mpyq8qovkhu" path="res://Buildings/Wall/wall_sprite.png" id="3_q0wqe"]
+[ext_resource type="Texture2D" uid="uid://buln88krd2qqn" path="res://Buildings/sprite_sheet.png" id="3_cy663"]
 
 [node name="Wall" instance=ExtResource("1_cr1d3")]
 script = ExtResource("2_iky6s")
@@ -15,9 +15,10 @@ building_name = "Wall"
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0)
 
 [node name="Sprite" parent="." index="2"]
-position = Vector2(0, -5)
-texture = ExtResource("3_q0wqe")
-region_rect = Rect2(120, 0, 30, 18)
+position = Vector2(0, -11)
+texture = ExtResource("3_cy663")
+region_enabled = true
+region_rect = Rect2(0, 0, 30, 42)
 
 [node name="HealthBar" parent="." index="5"]
 offset_left = -20.0
@@ -29,4 +30,4 @@ offset_bottom = -22.0
 polygon = PackedVector2Array(-15, 0, -15, -9, 0, -17, 15, -9, 15, 0, 0, 9)
 
 [node name="CollisionPolygon2D" parent="BaseArea" index="0"]
-polygon = PackedVector2Array(-13, 0, 0, 7, 12, 0, 0, -8)
+polygon = PackedVector2Array(-12, 0, 0, 7, 12, 0, 0, -7)

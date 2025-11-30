@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_key4u"]
 [ext_resource type="Script" uid="uid://fhq738iu11bn" path="res://Buildings/Townhall/town_hall.gd" id="2_5efca"]
-[ext_resource type="Texture2D" uid="uid://gnha5jdds1fq" path="res://Buildings/OldOpenSource/church_sprite_for_testing/renders/idle/45/000.png" id="2_8r65t"]
+[ext_resource type="Texture2D" uid="uid://buln88krd2qqn" path="res://Buildings/sprite_sheet.png" id="3_q3sf3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wtasv"]
 font_size = 12
@@ -17,8 +17,10 @@ building_name = "Townhall"
 tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD//wIAAAACAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAABAAAAAAACAAAAAAAAAAAAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAAAAAD9/wIAAAACAAAAAAD+/wIAAAACAAAAAAD+/wEAAAACAAAAAAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAABAAEAAAACAAAAAAABAP//AAACAAAAAAABAP7/AAACAAAAAAAAAP7/AAACAAAAAAAAAP//AAACAAAAAAD+//7/AAACAAAAAAD9//7/AAACAAAAAAA=")
 
 [node name="Sprite" parent="." index="2"]
-position = Vector2(0, -39)
-texture = ExtResource("2_8r65t")
+position = Vector2(-18, -36)
+texture = ExtResource("3_q3sf3")
+region_enabled = true
+region_rect = Rect2(50, 0, 92, 110)
 
 [node name="HealthBar" parent="." index="5"]
 offset_left = -20.0
