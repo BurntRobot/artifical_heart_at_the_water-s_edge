@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djgh0bea4w8mi"
-path="res://.godot/imported/tile_base.png-dc08302ac0c5bc1d74d53703aa9e018d.ctex"
+uid="uid://dxevd51812gkx"
+path="res://.godot/imported/waves.png-6ab3410b6e4ccf87cd762660bc537f7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Tiles/tile_base.png"
-dest_files=["res://.godot/imported/tile_base.png-dc08302ac0c5bc1d74d53703aa9e018d.ctex"]
+source_file="res://Waves/waves.png"
+dest_files=["res://.godot/imported/waves.png-6ab3410b6e4ccf87cd762660bc537f7b.ctex"]
 
 [params]
 

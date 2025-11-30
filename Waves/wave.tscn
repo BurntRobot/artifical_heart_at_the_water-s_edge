@@ -1,20 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://ck63nsp31aeq5"]
 
-[ext_resource type="Texture2D" uid="uid://0676c8ep7nf2" path="res://icon.svg" id="1_3p8kq"]
 [ext_resource type="Script" uid="uid://c5o4wvp28dwts" path="res://Waves/wave.gd" id="1_lch1g"]
+[ext_resource type="Texture2D" uid="uid://dxevd51812gkx" path="res://Waves/waves.png" id="2_lch1g"]
 
 [node name="Wave" type="Area2D"]
 script = ExtResource("1_lch1g")
+damage = 100.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 6, -11, 0, 0, -7, 11, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.944501, 0.20964229, 1.92523e-07, 1)
 position = Vector2(0.08020495, -0.5455086)
-rotation = -0.901432
-scale = Vector2(0.08527921, 0.067439154)
-texture = ExtResource("1_3p8kq")
+texture = ExtResource("2_lch1g")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

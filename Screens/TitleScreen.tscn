@@ -1,16 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb8jqfraqo72m"]
+[gd_scene load_steps=7 format=3 uid="uid://cb8jqfraqo72m"]
 
 [ext_resource type="Script" uid="uid://d4dohuttpwdp3" path="res://Screens/button.gd" id="1_7koxw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6eglw"]
-content_margin_left = 10.0
-content_margin_top = 2.0
-content_margin_right = 10.0
-content_margin_bottom = 2.0
-bg_color = Color(0.15533376, 0.31886634, 0.3935441, 1)
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.35686275, 0.39215687, 0.654902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p8mk"]
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.49803922, 0.56078434, 0.7529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8viuw"]
+content_margin_left = 5.0
+content_margin_top = 1.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.9490196, 0.74509805, 0.35686275, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6eglw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_odtcj"]
 font_size = 19
+font_color = Color(0.85882354, 0.47058824, 0.38039216, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -29,7 +76,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.30535534, 0.46811044, 0.44624555, 1)
+color = Color(0.49803922, 0.56078434, 0.7529412, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -44,7 +91,11 @@ offset_right = 20.5
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_6eglw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6p8mk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8viuw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6eglw")
 text = "Play new game"
 script = ExtResource("1_7koxw")
 

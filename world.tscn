@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cxnlncaghbgq2"]
+[gd_scene load_steps=34 format=4 uid="uid://cxnlncaghbgq2"]
 
 [ext_resource type="Script" uid="uid://b6kq3swrrqtyl" path="res://Map/map.gd" id="1_aqk2v"]
 [ext_resource type="TileSet" uid="uid://chx3a5tst7d7j" path="res://Map/Tiles/tile_set.tres" id="1_fj7yv"]
@@ -29,11 +29,11 @@ content_margin_left = 15.0
 content_margin_top = 0.0
 content_margin_right = 15.0
 content_margin_bottom = 5.0
-bg_color = Color(0.56566745, 0.38589782, 0.59551686, 1)
+bg_color = Color(0.49803922, 0.56078434, 0.7529412, 1)
 border_width_left = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.35686275, 0.39215687, 0.654902, 1)
 border_blend = true
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
@@ -52,7 +52,7 @@ content_margin_left = 5.0
 content_margin_top = 1.0
 content_margin_right = 5.0
 content_margin_bottom = 1.0
-bg_color = Color(0.24135017, 0.46381903, 0.4594248, 1)
+bg_color = Color(0.35686275, 0.39215687, 0.654902, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -69,7 +69,7 @@ content_margin_left = 5.0
 content_margin_top = 1.0
 content_margin_right = 5.0
 content_margin_bottom = 1.0
-bg_color = Color(0.49411863, 0.7756658, 0.7694732, 1)
+bg_color = Color(0.49803922, 0.56078434, 0.7529412, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -86,7 +86,7 @@ content_margin_left = 5.0
 content_margin_top = 1.0
 content_margin_right = 5.0
 content_margin_bottom = 1.0
-bg_color = Color(0.4377639, 0.5536534, 0.440571, 1)
+bg_color = Color(0.9490196, 0.74509805, 0.35686275, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -108,7 +108,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc2jv"]
-bg_color = Color(1, 0.35418186, 0.19439903, 1)
+bg_color = Color(0.85882354, 0.47058824, 0.38039216, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -119,53 +119,10 @@ font_size = 10
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h6ng"]
-content_margin_left = 15.0
-content_margin_top = 0.0
-content_margin_right = 15.0
-content_margin_bottom = 5.0
-bg_color = Color(0.56566745, 0.38589782, 0.59551686, 1)
-border_width_left = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 7.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(1, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_il2jm"]
 font_size = 10
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wse8f"]
-bg_color = Color(0.48570347, 0.48570353, 0.4857034, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo7i5"]
-content_margin_left = 15.0
-content_margin_top = 0.0
-content_margin_right = 15.0
-content_margin_bottom = 0.0
-bg_color = Color(0.56566745, 0.38589782, 0.59551686, 1)
-border_width_left = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-border_blend = true
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 7.0
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(1, 1)
 
 [node name="World" type="Node"]
 process_mode = 3
@@ -510,6 +467,7 @@ script = ExtResource("7_gbfbk")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -557,6 +515,7 @@ offset_top = 90.0
 offset_right = 74.0
 offset_bottom = 113.0
 rotation = -1.5707964
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 text = "Next wave soon..."
 label_settings = SubResource("LabelSettings_wukud")
 vertical_alignment = 1
@@ -576,6 +535,7 @@ columns = 4
 [node name="test_build" type="Button" parent="GUI/M/V/H2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -589,6 +549,7 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -602,6 +563,7 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -615,6 +577,7 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -628,6 +591,7 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -641,6 +605,7 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -654,6 +619,7 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -667,6 +633,7 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.9529412, 0.85490197, 0.36078432, 1)
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
@@ -681,7 +648,7 @@ visible = false
 offset_top = 134.5
 offset_right = 40.0
 offset_bottom = 174.5
-theme_override_styles/panel = SubResource("StyleBoxFlat_4h6ng")
+theme_override_styles/panel = SubResource("StyleBoxFlat_26xuy")
 
 [node name="Label" type="Label" parent="GUI/PanelContainer"]
 layout_mode = 2
@@ -715,7 +682,7 @@ offset_left = 119.0
 offset_top = 74.0
 offset_right = 280.0
 offset_bottom = 225.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_wse8f")
+theme_override_styles/panel = SubResource("StyleBoxFlat_26xuy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/KafeMenu/PanelContainer"]
 layout_mode = 2
@@ -725,6 +692,11 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "back"
 
 [node name="M" type="MarginContainer" parent="GUI/KafeMenu/PanelContainer/VBoxContainer"]
@@ -743,14 +715,29 @@ text = "Choose a date for the month"
 
 [node name="Button" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Conselour. Reinforce townhall"
 
 [node name="Button2" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Main from Houses. Reinforce houses"
 
 [node name="Button3" type="Button" parent="GUI/KafeMenu/PanelContainer/VBoxContainer/M/V"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bc84e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wukud")
+theme_override_styles/hover = SubResource("StyleBoxFlat_il2jm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_26xuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_26xuy")
 text = "Engineer. Reinforce walls"
 
 [node name="Help" type="Control" parent="GUI"]
@@ -786,7 +773,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="PanelContainer" type="PanelContainer" parent="GUI/Help/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bo7i5")
+theme_override_styles/panel = SubResource("StyleBoxFlat_26xuy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/Help/MarginContainer/PanelContainer"]
 layout_mode = 2

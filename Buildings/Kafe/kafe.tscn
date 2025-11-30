@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=4 uid="uid://dncsh5vk6ho6w"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_tqoex"]
-[ext_resource type="Texture2D" uid="uid://dxawsqfait5iy" path="res://Buildings/OldOpenSource/barracks/renders/idle/45/000.png" id="2_8hs10"]
 [ext_resource type="Script" uid="uid://cahhpgukdsyca" path="res://Buildings/Kafe/kafe.gd" id="2_0680k"]
+[ext_resource type="Texture2D" uid="uid://buln88krd2qqn" path="res://Buildings/sprite_sheet.png" id="3_ridus"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xt25x"]
 font_size = 12
@@ -18,9 +18,10 @@ building_name = "Kafe"
 tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD//wEAAAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAACAAAAAAAAAP//AAACAAAAAAD/////AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAA=")
 
 [node name="Sprite" parent="." index="2"]
-position = Vector2(1.000001, -25)
-scale = Vector2(0.50104165, 0.50104165)
-texture = ExtResource("2_8hs10")
+position = Vector2(0, -16)
+texture = ExtResource("3_ridus")
+region_enabled = true
+region_rect = Rect2(120, 111, 61, 63)
 
 [node name="HealthBar" parent="." index="5"]
 offset_left = -12.0
@@ -30,7 +31,7 @@ offset_bottom = -78.0
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(1.5, -15)
-polygon = PackedVector2Array(-1.5, 42, -46.5, 15, -45.5, 5, -20.5, -8, -20.5, -24, -10.5, -44, 33.5, -22, 43.5, -14, 43.5, 2, 39.5, 4, 39.5, 13, 42.5, 15)
+polygon = PackedVector2Array(-27.5, 20, -28.5, 15, -32.5, 9, -31.5, -9, -23.5, -24, -20.5, -24, -16.5, -21, 2.5, -23, 10.5, -30, 16.5, -32, 27.5, -25, 27.5, -14, 28.5, 4, 25.5, 11, 24.5, 15, 16.5, 25, -1.5, 30, -15.5, 28)
 
 [node name="CountdownLabel" type="Label" parent="." index="7"]
 offset_left = -44.0
@@ -39,7 +40,7 @@ offset_right = -4.0
 offset_bottom = -39.0
 
 [node name="CollisionPolygon2D" parent="BaseArea" index="0"]
-polygon = PackedVector2Array(0, 26, -45, 0, 0, -28, 44, -1)
+polygon = PackedVector2Array(0, 22, -37, -1, 0, -23, 38, -1)
 
 [node name="InfoPanel" parent="." index="9"]
 offset_left = 30.0
