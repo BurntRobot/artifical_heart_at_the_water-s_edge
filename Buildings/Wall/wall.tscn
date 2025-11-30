@@ -27,7 +27,7 @@ offset_right = 20.0
 offset_bottom = -22.0
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-polygon = PackedVector2Array(-15, 0, -15, -9, 0, -17, 15, -9, 15, 0, 0, 9)
+polygon = PackedVector2Array(-15, 0, -15, -15, -5, -23, 9, -32, 15, -28, 15, 0, 0, 9)
 
 [node name="CollisionPolygon2D" parent="BaseArea" index="0"]
 polygon = PackedVector2Array(-12, 0, 0, 7, 12, 0, 0, -7)

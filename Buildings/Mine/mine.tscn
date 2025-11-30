@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://byfdh4iyuq2h6"]
+[gd_scene load_steps=5 format=3 uid="uid://byfdh4iyuq2h6"]
 
 [ext_resource type="PackedScene" uid="uid://cyqa3xdmnxit8" path="res://Buildings/building.tscn" id="1_koyvs"]
-[ext_resource type="Texture2D" uid="uid://dmiayimtsju6" path="res://Buildings/OldOpenSource/weaponsmith/renders/idle/45/000.png" id="2_01ouk"]
 [ext_resource type="Script" uid="uid://b2nq7s08x5kpf" path="res://Buildings/Mine/mine.gd" id="2_jdrsi"]
+[ext_resource type="Texture2D" uid="uid://buln88krd2qqn" path="res://Buildings/sprite_sheet.png" id="3_xbapi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xt25x"]
 font_size = 12
@@ -15,12 +15,13 @@ health = 150
 building_name = "Mine"
 
 [node name="Base" parent="." index="0"]
-tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAD/////AAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD+/wEAAAACAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0)
 
 [node name="Sprite" parent="." index="2"]
-position = Vector2(0, -23)
-scale = Vector2(0.671875, 0.671875)
-texture = ExtResource("2_01ouk")
+position = Vector2(0, -18)
+texture = ExtResource("3_xbapi")
+region_enabled = true
+region_rect = Rect2(0, 89, 49, 39)
 
 [node name="HealthBar" parent="." index="5"]
 offset_left = -20.0
@@ -28,8 +29,14 @@ offset_top = -83.0
 offset_right = 20.0
 offset_bottom = -66.0
 
+[node name="Area2D" parent="." index="6"]
+visible = false
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 polygon = PackedVector2Array(-38, 0, -38, -17, -20, -26, -20, -49, -9, -60, 21, -44, 20, -32, 41, -21, 40, -1, 2, 18)
+
+[node name="BaseArea" parent="." index="7"]
+visible = false
 
 [node name="CollisionPolygon2D" parent="BaseArea" index="0"]
 polygon = PackedVector2Array(-45, -1, 0, -28, 45, -1, 0, 26)

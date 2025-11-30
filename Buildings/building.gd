@@ -108,7 +108,8 @@ func hurt_for(damage: int):
 func _input(event: InputEvent) -> void:
 	if not is_built:
 		if event.is_action_pressed("rotate"):
-			_rotate()
+			pass
+			#_rotate()
 		if event.is_action_pressed("build"):
 			if CityResources.money - building_cost >= 0 and can_build:
 				_build()
